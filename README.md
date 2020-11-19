@@ -1,1 +1,1 @@
-# bundleofjoy-frontend
+# bundlesofjoy-frontend

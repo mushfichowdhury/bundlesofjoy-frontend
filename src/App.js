@@ -1,15 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route } from "react-router-dom";
+import Welcome from './Components/Welcome';
+import Homepage from './Components/Homepage'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="https://clipart.info/images/ccovers/1559140359baby-png-28.png" className="App-logo" alt="logo" />
-        <p>
-          Welcome to Bundles of Joy
-        </p>
-      </header>
+            <Route path="/welcome" component={Welcome} />
+            <Route path="/home" component={Homepage} />
     </div>
   );
 }

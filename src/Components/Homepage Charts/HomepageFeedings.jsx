@@ -1,213 +1,315 @@
-import React, { Component } from 'react'
-import { ResponsiveBar } from '@nivo/bar'
-import "./example.css"
+import React from 'react';
+import { ResponsiveLine } from '@nivo/line';
 
+export default () => (
+    <div style={{ height: 500 }}>
+	<ResponsiveLine
+		data={data}
+		margin={{
+			"top": 50,
+			"right": 110,
+			"bottom": 50,
+			"left": 60
+		}}
+		xScale={{
+			"type": "point"
+		}}
+		yScale={{
+			"type": "linear",
+			"stacked": true,
+			"min": "auto",
+			"max": "auto"
+		}}
+		minY="auto"
+		maxY="auto"
+		stacked={true}
+		axisBottom={{
+			"orient": "bottom",
+			"tickSize": 5,
+			"tickPadding": 5,
+			"tickRotation": 0,
+			"legend": "transportation",
+			"legendOffset": 36,
+			"legendPosition": "middle"
+		}}
+		axisLeft={{
+			"orient": "left",
+			"tickSize": 5,
+			"tickPadding": 5,
+			"tickRotation": 0,
+			"legend": "count",
+			"legendOffset": -40,
+			"legendPosition": "middle"
+		}}
+		dotSize={10}
+		dotColor="inherit:darker(0.3)"
+		dotBorderWidth={2}
+		dotBorderColor="#ffffff"
+		enableDotLabel={true}
+		dotLabel="y"
+		dotLabelYOffset={-12}
+		animate={true}
+		motionStiffness={90}
+		motionDamping={15}
+		legends={[
+			{
+				"anchor": "bottom-right",
+				"direction": "column",
+				"justify": false,
+				"translateX": 100,
+				"translateY": 0,
+				"itemsSpacing": 0,
+				"itemDirection": "left-to-right",
+				"itemWidth": 80,
+				"itemHeight": 20,
+				"itemOpacity": 0.75,
+				"symbolSize": 12,
+				"symbolShape": "circle",
+				"symbolBorderColor": "rgba(0, 0, 0, .5)",
+				"effects": [
+					{
+						"on": "hover",
+						"style": {
+							"itemBackground": "rgba(0, 0, 0, .03)",
+							"itemOpacity": 1
+						}
+					}
+				]
+			}
+		]}
+	/>
+    </div>
+);
 
-export default class HomepageFeedings extends Component {
-
-    state = {
-        testdata: [
-            {
-            "country": "AD",
-            "hot dog": 169,
-            "hot dogColor": "hsl(121, 70%, 50%)",
-            "burger": 13,
-            "burgerColor": "hsl(216, 70%, 50%)",
-            "sandwich": 87,
-            "sandwichColor": "hsl(321, 70%, 50%)",
-            "kebab": 190,
-            "kebabColor": "hsl(107, 70%, 50%)",
-            "fries": 59,
-            "friesColor": "hsl(290, 70%, 50%)",
-            "donut": 78,
-            "donutColor": "hsl(49, 70%, 50%)"
-            },
-            {
-            "country": "AE",
-            "hot dog": 184,
-            "hot dogColor": "hsl(246, 70%, 50%)",
-            "burger": 85,
-            "burgerColor": "hsl(33, 70%, 50%)",
-            "sandwich": 53,
-            "sandwichColor": "hsl(203, 70%, 50%)",
-            "kebab": 168,
-            "kebabColor": "hsl(6, 70%, 50%)",
-            "fries": 20,
-            "friesColor": "hsl(274, 70%, 50%)",
-            "donut": 86,
-            "donutColor": "hsl(215, 70%, 50%)"
-            },
-            {
-            "country": "AF",
-            "hot dog": 187,
-            "hot dogColor": "hsl(185, 70%, 50%)",
-            "burger": 137,
-            "burgerColor": "hsl(77, 70%, 50%)",
-            "sandwich": 52,
-            "sandwichColor": "hsl(237, 70%, 50%)",
-            "kebab": 47,
-            "kebabColor": "hsl(71, 70%, 50%)",
-            "fries": 172,
-            "friesColor": "hsl(119, 70%, 50%)",
-            "donut": 25,
-            "donutColor": "hsl(21, 70%, 50%)"
-            },
-            {
-            "country": "AG",
-            "hot dog": 123,
-            "hot dogColor": "hsl(89, 70%, 50%)",
-            "burger": 178,
-            "burgerColor": "hsl(71, 70%, 50%)",
-            "sandwich": 1,
-            "sandwichColor": "hsl(343, 70%, 50%)",
-            "kebab": 147,
-            "kebabColor": "hsl(286, 70%, 50%)",
-            "fries": 192,
-            "friesColor": "hsl(129, 70%, 50%)",
-            "donut": 85,
-            "donutColor": "hsl(282, 70%, 50%)"
-            },
-            {
-            "country": "AI",
-            "hot dog": 62,
-            "hot dogColor": "hsl(69, 70%, 50%)",
-            "burger": 40,
-            "burgerColor": "hsl(33, 70%, 50%)",
-            "sandwich": 195,
-            "sandwichColor": "hsl(134, 70%, 50%)",
-            "kebab": 127,
-            "kebabColor": "hsl(177, 70%, 50%)",
-            "fries": 45,
-            "friesColor": "hsl(341, 70%, 50%)",
-            "donut": 123,
-            "donutColor": "hsl(191, 70%, 50%)"
-            },
-            {
-            "country": "AL",
-            "hot dog": 200,
-            "hot dogColor": "hsl(294, 70%, 50%)",
-            "burger": 25,
-            "burgerColor": "hsl(61, 70%, 50%)",
-            "sandwich": 134,
-            "sandwichColor": "hsl(12, 70%, 50%)",
-            "kebab": 199,
-            "kebabColor": "hsl(26, 70%, 50%)",
-            "fries": 129,
-            "friesColor": "hsl(348, 70%, 50%)",
-            "donut": 139,
-            "donutColor": "hsl(293, 70%, 50%)"
-            },
-            {
-            "country": "AM",
-            "hot dog": 157,
-            "hot dogColor": "hsl(149, 70%, 50%)",
-            "burger": 56,
-            "burgerColor": "hsl(322, 70%, 50%)",
-            "sandwich": 23,
-            "sandwichColor": "hsl(210, 70%, 50%)",
-            "kebab": 150,
-            "kebabColor": "hsl(47, 70%, 50%)",
-            "fries": 108,
-            "friesColor": "hsl(116, 70%, 50%)",
-            "donut": 18,
-            "donutColor": "hsl(50, 70%, 50%)"
-            }
-        ]
-    } 
-
-    render() {
-    return (
-            <ResponsiveBar
-            data= {this.state.testdata}
-            keys={[ 'hot dog', 'burger', 'sandwich', 'kebab', 'fries', 'donut' ]}
-            indexBy="country"
-            margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-            padding={0.3}
-            valueScale={{ type: 'linear' }}
-            colors={{ scheme: 'nivo' }}
-            defs={[
-                {
-                    id: 'dots',
-                    type: 'patternDots',
-                    background: 'inherit',
-                    color: '#38bcb2',
-                    size: 4,
-                    padding: 1,
-                    stagger: true
-                },
-                {
-                    id: 'lines',
-                    type: 'patternLines',
-                    background: 'inherit',
-                    color: '#eed312',
-                    rotation: -45,
-                    lineWidth: 6,
-                    spacing: 10
-                }
-            ]}
-            fill={[
-                {
-                    match: {
-                        id: 'fries'
-                    },
-                    id: 'dots'
-                },
-                {
-                    match: {
-                        id: 'sandwich'
-                    },
-                    id: 'lines'
-                }
-            ]}
-            borderColor={{ from: 'color', modifiers: [ [ 'darker', 1.6 ] ] }}
-            axisTop={null}
-            axisRight={null}
-            axisBottom={{
-                tickSize: 5,
-                tickPadding: 5,
-                tickRotation: 0,
-                legend: 'country',
-                legendPosition: 'middle',
-                legendOffset: 32
-            }}
-            axisLeft={{
-                tickSize: 5,
-                tickPadding: 5,
-                tickRotation: 0,
-                legend: 'food',
-                legendPosition: 'middle',
-                legendOffset: -40
-            }}
-            labelSkipWidth={12}
-            labelSkipHeight={12}
-            labelTextColor={{ from: 'color', modifiers: [ [ 'darker', 1.6 ] ] }}
-            legends={[
-                {
-                    dataFrom: 'keys',
-                    anchor: 'bottom-right',
-                    direction: 'column',
-                    justify: false,
-                    translateX: 120,
-                    translateY: 0,
-                    itemsSpacing: 2,
-                    itemWidth: 100,
-                    itemHeight: 20,
-                    itemDirection: 'left-to-right',
-                    itemOpacity: 0.85,
-                    symbolSize: 20,
-                    effects: [
-                        {
-                            on: 'hover',
-                            style: {
-                                itemOpacity: 1
-                            }
-                        }
-                    ]
-                }
-            ]}
-            animate={true}
-            motionStiffness={90}
-            motionDamping={15}
-        />   
-    )}
-}
+const data = [
+	{
+		"id": "japan",
+		"color": "hsl(214, 70%, 50%)",
+		"data": [
+			{
+				"x": "plane",
+				"y": 11
+			},
+			{
+				"x": "helicopter",
+				"y": 211
+			},
+			{
+				"x": "boat",
+				"y": 26
+			},
+			{
+				"x": "train",
+				"y": 22
+			},
+			{
+				"x": "subway",
+				"y": 94
+			},
+			{
+				"x": "bus",
+				"y": 82
+			},
+			{
+				"x": "car",
+				"y": 49
+			},
+			{
+				"x": "moto",
+				"y": 144
+			},
+			{
+				"x": "bicycle",
+				"y": 61
+			},
+			{
+				"x": "others",
+				"y": 130
+			}
+		]
+	},
+	{
+		"id": "france",
+		"color": "hsl(285, 70%, 50%)",
+		"data": [
+			{
+				"x": "plane",
+				"y": 121
+			},
+			{
+				"x": "helicopter",
+				"y": 121
+			},
+			{
+				"x": "boat",
+				"y": 28
+			},
+			{
+				"x": "train",
+				"y": 134
+			},
+			{
+				"x": "subway",
+				"y": 190
+			},
+			{
+				"x": "bus",
+				"y": 185
+			},
+			{
+				"x": "car",
+				"y": 191
+			},
+			{
+				"x": "moto",
+				"y": 137
+			},
+			{
+				"x": "bicycle",
+				"y": 140
+			},
+			{
+				"x": "others",
+				"y": 87
+			}
+		]
+	},
+	{
+		"id": "us",
+		"color": "hsl(114, 70%, 50%)",
+		"data": [
+			{
+				"x": "plane",
+				"y": 121
+			},
+			{
+				"x": "helicopter",
+				"y": 190
+			},
+			{
+				"x": "boat",
+				"y": 113
+			},
+			{
+				"x": "train",
+				"y": 257
+			},
+			{
+				"x": "subway",
+				"y": 231
+			},
+			{
+				"x": "bus",
+				"y": 116
+			},
+			{
+				"x": "car",
+				"y": 52
+			},
+			{
+				"x": "moto",
+				"y": 277
+			},
+			{
+				"x": "bicycle",
+				"y": 169
+			},
+			{
+				"x": "others",
+				"y": 13
+			}
+		]
+	},
+	{
+		"id": "germany",
+		"color": "hsl(292, 70%, 50%)",
+		"data": [
+			{
+				"x": "plane",
+				"y": 108
+			},
+			{
+				"x": "helicopter",
+				"y": 176
+			},
+			{
+				"x": "boat",
+				"y": 181
+			},
+			{
+				"x": "train",
+				"y": 189
+			},
+			{
+				"x": "subway",
+				"y": 66
+			},
+			{
+				"x": "bus",
+				"y": 119
+			},
+			{
+				"x": "car",
+				"y": 161
+			},
+			{
+				"x": "moto",
+				"y": 282
+			},
+			{
+				"x": "bicycle",
+				"y": 202
+			},
+			{
+				"x": "others",
+				"y": 136
+			}
+		]
+	},
+	{
+		"id": "norway",
+		"color": "hsl(204, 70%, 50%)",
+		"data": [
+			{
+				"x": "plane",
+				"y": 22
+			},
+			{
+				"x": "helicopter",
+				"y": 8
+			},
+			{
+				"x": "boat",
+				"y": 222
+			},
+			{
+				"x": "train",
+				"y": 166
+			},
+			{
+				"x": "subway",
+				"y": 25
+			},
+			{
+				"x": "bus",
+				"y": 110
+			},
+			{
+				"x": "car",
+				"y": 2
+			},
+			{
+				"x": "moto",
+				"y": 16
+			},
+			{
+				"x": "bicycle",
+				"y": 77
+			},
+			{
+				"x": "others",
+				"y": 236
+			}
+		]
+	}
+];

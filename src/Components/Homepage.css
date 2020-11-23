@@ -1,0 +1,58 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "Last-Logs Journal-Entries Journal-Entries"
+        "Last-Logs Journal-Entries Journal-Entries"
+        ". Journal-Entries Journal-Entries";
+    padding-right: 8%;
+    padding-left: 8%;
+    }
+    
+.Journal-Entries { grid-area: Journal-Entries; }
+
+.Last-Logs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "Log-Diaper-Change Log-Diaper-Change Log-Diaper-Change"
+    "Log-Feeding Log-Feeding Log-Feeding"
+    "Log-Nap Log-Nap Log-Nap";
+    grid-area: Last-Logs;
+}
+
+.Log-Diaper-Change { 
+    grid-area: Log-Diaper-Change;
+    outline-width: 0;
+    border: none;
+    padding: 5px 20px;
+    margin: 0 10px;
+    background-color: #eff2f5; 
+    height: 100%;
+}
+
+.Log-Feeding { 
+    grid-area: Log-Feeding;
+    outline-width: 0;
+    border: none;
+    padding: 5px 20px;
+    margin: 0 10px;
+    background-color: #eff2f5; 
+    height: 100%;
+}
+
+.Log-Nap { 
+    grid-area: Log-Nap; 
+    outline-width: 0;
+    border: none;
+    padding: 5px 20px;
+    margin: 0 10px;
+    background-color: #eff2f5;
+    height: 100%;
+}
+    
+

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import NapRow from "./NapRow"
 import NewNap from './NewNap'
-import { Link } from "react-router-dom";
 
 
 export default class Naps extends Component {
@@ -39,12 +38,8 @@ export default class Naps extends Component {
 
     render() {
         return (
-            <div>
-                <Link to="/home"><button>Go to Home</button></Link>
-                <Link to="/diapers"><button>Go to Diapers</button></Link>
-                <Link to="/feedings"><button>Go to Feedings</button></Link>
-                <Link to="/naps"><button>Go to Naps</button></Link>
-                <h1>All Naps</h1>
+            <div >
+                <h1 > All Naps</h1>
                 <NewNap submitHandler={this.submitHandler} />
                 <table className="napTable" >
                     <thead style={{textAlign: "center"}}>

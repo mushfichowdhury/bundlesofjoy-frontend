@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import DiaperRow from "./DiaperRow"
 import NewDiaper from './NewDiaper'
-import { Link } from "react-router-dom";
 
 
 export default class Diapers extends Component {
@@ -38,13 +37,8 @@ export default class Diapers extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div>
-                <Link to="/home"><button>Go to Home</button></Link>
-                <Link to="/diapers"><button>Go to Diapers</button></Link>
-                <Link to="/feedings"><button>Go to Feedings</button></Link>
-                <Link to="/naps"><button>Go to Naps</button></Link>
                 <h1>All Diaper Changes</h1>
                 <NewDiaper submitHandler={this.submitHandler}/>
                 <table className="diaperTable" >

@@ -1,0 +1,45 @@
+.grid-container-entry {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: max-content;
+    gap: 0px 15px;
+    grid-template-areas:
+    "post-image post-content post-content";
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 7px 7px 7px -7px rgba(0, 0, 0, 0.75);
+}
+
+.post-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 20% 80%;
+    gap: 0px 0px 0px 0px;
+    grid-template-areas:
+        "post-date post-date post-button"
+        "post-text post-text post-text";
+    grid-area: post-content;
+    width: 100%;
+   
+}
+
+.post-text { grid-area: post-text; }
+.post-date { 
+    grid-area: post-date; 
+    height: fit-content;
+}
+.post-button { grid-area: post-button; }
+
+.post-image { grid-area: post-image; }
+
+.post-image > img {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 0px 0px 15px;
+}
+
+
+

@@ -9,16 +9,9 @@ export default class NewDiaper extends Component {
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
-        console.log(this.state)
     }
     radioChangeHandler = (e) => {
-        if(e.target.checked) {
-            console.log("checked")
-        } else {
-            console.log("unchecked")
-        }
         this.setState({ [e.target.id]: e.target.value })
-        console.log(this.state)
     }
 
     localSubmitHandler = (e) => {
@@ -35,7 +28,6 @@ export default class NewDiaper extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div>
             <h3>Log Diaper Change</h3>

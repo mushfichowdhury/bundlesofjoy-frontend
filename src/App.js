@@ -1,14 +1,10 @@
 import './App.css';
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Link } from "react-router-dom";
-import ls from "local-storage"
-import Welcome from './Components/Welcome';
 import Homepage from './Components/Homepage'
-import ChildLogIn from './Components/ChildLogIn'
 import Diapers from './Components/Diapers';
 import Naps from './Components/Naps'
 import Navbar from './Navbar'
-import Signup from './Components/Signup';
 import axios from "axios";
 import Feedings from './Components/Feedings';
 
@@ -46,16 +42,17 @@ const App = () => {
     setUser(response.data);
     // store the user in localStorage
     localStorage.setItem("user", JSON.stringify(response.data));
+    this.history.push('/home')
   };
 
   // if there's a user show the message below
   if (user) {
-    console.log("Logged in as:", ls.get("currentUser"))
+    console.log("Logged in as:", localStorage.getItem("user"))
     return (
-      <div className="App">
+      <div>
+        <Navbar/>
         <Link to="/welcome"><button onClick={handleLogout}>logout</button></Link>
-        
-        <Route path="/welcome" component={Welcome} />
+        {/* <Route path="/welcome" component={Welcome} /> */}
         <Route path="/home" component={Homepage} />
         <Route path="/diapers" component={Diapers} />
         <Route path="/feedings" component={Feedings} />
@@ -66,27 +63,31 @@ const App = () => {
 
   // if there's no user, show the login form
   return (
-    <div className="App">
-      <h1>Bundles of Joy</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username: </label>
-        <input
-          type="text"
-          value={username}
-          placeholder="enter a username"
-          onChange={({ target }) => setUsername(target.value)}
-        />
-        <div>
-          <label htmlFor="password">password: </label>
+    <div>
+      <div className="App">
+        <h1>Bundles of Joy</h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username: </label>
           <input
-            type="password"
-            value={password}
-            placeholder="enter a password"
-            onChange={({ target }) => setPassword(target.value)}
+            type="text"
+            value={username}
+            placeholder="enter a username"
+            onChange={({ target }) => setUsername(target.value)}
           />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+          <div>
+            <label htmlFor="password">Password: </label>
+            <input
+              type="password"
+              value={password}
+              placeholder="enter a password"
+              onChange={({ target }) => setPassword(target.value)}
+            />
+          </div>
+          <button type="submit">Log In</button>
+          <Link to="/signup"><button>Sign Up</button></Link>
+          <Link to="/childlogin"><button>Child Log In</button></Link>        
+          </form>
+      </div>
     </div>
   );
 };

@@ -9,7 +9,6 @@ export default class NewFeeding extends Component {
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
-        console.log(this.state)
     }
 
     localSubmitHandler = (e) => {
@@ -26,14 +25,13 @@ export default class NewFeeding extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div>
             <h3>Log Feeding</h3>
             <form onSubmit={this.localSubmitHandler} >
                 <label for="duration">Duration:</label>
                 <input name="duration" type="text" value={this.state.duration} onChange={this.changeHandler} />
-                <label for="amount">Amount:</label>
+                <label for="amount">Amount (oz.):</label>
                 <input name="amount" type="number" value={this.state.amount} onChange={this.changeHandler} />
                 <label for="method">Method:</label>
                 <select name="method" id="method" onChange={this.changeHandler}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
 
-export default () => (
+export default function HomepageFeedings () {
     <div style={{ height: 500 }}>
 	<ResponsiveLine
 		data={data}
@@ -79,7 +79,7 @@ export default () => (
 		]}
 	/>
     </div>
-);
+};
 
 const data = [
 	{

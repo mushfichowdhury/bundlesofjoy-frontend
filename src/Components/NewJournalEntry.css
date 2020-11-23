@@ -1,0 +1,24 @@
+.new-journal-entry {
+    display: flex;
+    margin-bottom: 30px;
+    padding: 30px;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 7px 7px 7px -7px rgba(0, 0, 0, 0.75);
+    width: 100%;
+}
+
+.new-journal-entry > form > input {
+    outline-width: 0;
+    border: none;
+    padding: 5px 20px;
+    margin: 0 10px;
+    border-radius: 999px;
+    background-color: #eff2f5;
+}
+
+.new-journal-entry > form {
+    flex: 1;
+    display: flex;
+    margin-bottom: 10px;
+}

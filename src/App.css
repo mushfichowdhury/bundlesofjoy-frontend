@@ -54,6 +54,9 @@ table.diaperTable {
   width: 80%;
   text-align: center;
   border-collapse: collapse;
+  overflow-y:scroll;
+  height:500px;
+  /* display:block; */
 }
 table.diaperTable td, table.diaperTable th {
   padding: 15px;
@@ -110,6 +113,7 @@ table.napTable {
   width: 80%;
   text-align: center;
   border-collapse: collapse;
+  
 }
 table.napTable td, table.napTable th {
   padding: 15px;

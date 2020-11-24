@@ -1,4 +1,3 @@
-import { useHistory } from "react-router-dom";
 
 
 export function userLoginAction(user, dispatch) {
@@ -24,7 +23,7 @@ export function userLoginAction(user, dispatch) {
 export function sessionUserAction(user, dispatch) {
     return function(){
             dispatch({ 
-                type: "LOGIN_DOCTOR", 
+                type: "LOGIN_USER", 
                 payload: user})
     }
 

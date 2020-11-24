@@ -26,7 +26,7 @@ function App(props) {
       .then(response => response.json())
       .then(response => props.sessionUser(response))
     } else {
-      console.log("no user logged in!")
+      console.log("There is no User logged in.")
     }
   })
   

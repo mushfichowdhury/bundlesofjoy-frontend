@@ -1,95 +1,123 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import HomepageNaps from './Homepage Charts/HomepageNaps';
 import JournalEntries from './JournalEntries'
 import NewJournalEntry from './NewJournalEntry'
 import ChildInfo from './ChildInfo'
 import './Homepage.css'
 import _ from 'underscore'
+import { useStateValue } from './StateProvider';
 
-export default class Homepage extends React.Component {
-    
-    state = {
-        entries: [],
-        naps: [],
-        feedings: [],
-        diapers: [],
-        children: []
-    }
 
-    componentDidMount() {
+export default function Homepage() {
+    const [{ user }, dispatch] = useStateValue();
+    const [entries, setEntries] = useState([]);
+    const [naps, setNaps] = useState([]);
+    const [feedings, setFeedings] = useState([]);
+    const [diapers, setDiapers] = useState([]);
+    const [children, setChildren] = useState([]);
+
+    useEffect(() => {
         fetch("http://localhost:3000/journal_entries")
         .then(resp => resp.json())
-        .then((allEntries) => {
-        this.setState({
-            entries: allEntries
-        })
-        })
+        .then((allEntries) => setEntries(allEntries))
 
         fetch("http://localhost:3000/naps")
         .then(resp => resp.json())
-        .then((allEntries) => {
-        this.setState({
-            naps: allEntries
-        })
-        })
+        .then((allNap) => setNaps(allNap.filter(obj => (obj.user_id === {user}.id))))
 
         fetch("http://localhost:3000/feedings")
         .then(resp => resp.json())
-        .then((allEntries) => {
-        this.setState({
-            feedings: allEntries
-        })
-        })
+        .then((allFeedings) => setFeedings(allFeedings.filter(obj => (obj.user_id === {user}.id))))
 
         fetch("http://localhost:3000/diapers")
         .then(resp => resp.json())
-        .then((allEntries) => {
-        this.setState({
-            diapers: allEntries
-        })
-        })
+        .then((allDiapers) => setDiapers(allDiapers.filter(obj => (obj.user_id === {user}.id))))
 
         fetch("http://localhost:3000/children")
         .then(resp => resp.json())
-        .then((allEntries) => {
-        this.setState({
-            children: allEntries
-        })
-        })
+        .then((allChildren) => setChildren(allChildren.filter(obj => (obj.user_id === {user}.id))))
+
+        console.log("Entries:", {entries});
+        console.log("Naps:", {naps});
+        console.log("Diapers:", {diapers});
+    }, []);
+    // state = {
+    //     entries: [],
+    //     naps: [],
+    //     feedings: [],
+    //     diapers: [],
+    //     children: []
+    // }
+
+    // componentDidMount() {
+    //     fetch("http://localhost:3000/journal_entries")
+    //     .then(resp => resp.json())
+    //     .then((allEntries) => {
+    //     this.setState({
+    //         entries: allEntries.filter(obj => (obj.user_id === {user}.id))
+    //     })
+    //     })
+
+    //     fetch("http://localhost:3000/naps")
+    //     .then(resp => resp.json())
+    //     .then((allEntries) => {
+    //     this.setState({
+    //         naps: allEntries
+    //     })
+    //     })
+
+    //     fetch("http://localhost:3000/feedings")
+    //     .then(resp => resp.json())
+    //     .then((allEntries) => {
+    //     this.setState({
+    //         feedings: allEntries
+    //     })
+    //     })
+
+    //     fetch("http://localhost:3000/diapers")
+    //     .then(resp => resp.json())
+    //     .then((allEntries) => {
+    //     this.setState({
+    //         diapers: allEntries
+    //     })
+    //     })
+
+    //     fetch("http://localhost:3000/children")
+    //     .then(resp => resp.json())
+    //     .then((allEntries) => {
+    //     this.setState({
+    //         children: allEntries
+    //     })
+    //     })
+    // }
+
+    const getEntries = () => {
+        return {entries}
     }
 
-    getEntries = () => {
-        return this.state.entries
+    const renderEntries = () => {
+        return {entries}.reverse().map((entryObj) => <JournalEntries key={entryObj.id} entry={entryObj} removeEntry={this.removeEntry} />)
     }
 
-    renderEntries = () => {
-        return this.state.entries.reverse().map((entryObj) => <JournalEntries key={entryObj.id} entry={entryObj} removeEntry={this.removeEntry} />)
+    const addEntry = (newEntry) => {
+        let updatedEntries = [...{entries}, newEntry]
+        setEntries(updatedEntries)
     }
 
-    addEntry = (newEntry) => {
-        let updatedEntries = [...this.state.entries, newEntry]
-        this.setState({
-        entries: updatedEntries
-        })
-    }
-
-    removeEntry = (entryObj) => {
-        let updatedEntries = this.state.entries.filter((obj) => {
+    const removeEntry = (entryObj) => {
+        let updatedEntries = {entries}.filter((obj) => {
             return obj.id !== entryObj.id
         })
-        this.setState({
-            entries: updatedEntries
-        })
+        setEntries(updatedEntries)
     }
 
-    renderChildren = () => {
-        _.delay(3000)
-        this.state.children.filter((child) => { return child.user_id === 1 }).map((child)=> <ChildInfo key={child.id} child={child} />)
-    }
+    // const renderChildren = () => {
+    //     children.filter((child) => { return child.user_id === {user}.id }).map((child)=> <ChildInfo key={child.id} child={child} />)
+    // }
 
 
-    render() {
-        console.log("renderChildren", this.renderChildren())
+    // render() {
+    //     console.log("renderChildren", this.renderChildren())
     return (
         <div>
             <div className="App">
@@ -97,13 +125,13 @@ export default class Homepage extends React.Component {
             </div>
             <br/><br/>
             <div className="grid-container" >
-                {this.renderChildren()}
+                {/* {renderChildren()} */}
                 <div className="Journal-Entries" >
-                    <NewJournalEntry addEntry={this.addEntry} /> 
-                    {this.renderEntries()}
+                    <NewJournalEntry addEntry={addEntry} /> 
+                    {renderEntries()}
                 </div>
             </div>
             <HomepageNaps/>
         </div>
-    )}
+    )
 }

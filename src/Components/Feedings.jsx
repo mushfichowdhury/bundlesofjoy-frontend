@@ -8,7 +8,7 @@ export default class Feedings extends Component {
 	}
 
 	componentDidMount = () => {
-		fetch("http://localhost:3000/feedings")
+		fetch("http://localhost:3000/api/v1/feedings")
 		.then(resp => resp.json())
 		.then((data) => {
 			this.setState({
@@ -18,7 +18,7 @@ export default class Feedings extends Component {
     }
 
     submitHandler = (newFeeding) => {
-        fetch('http://localhost:3000/feedings', {
+        fetch('http://localhost:3000/api/v1/feedings', {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -32,11 +32,12 @@ export default class Feedings extends Component {
     }
     
     renderFeedings = () => {
-        return this.state.feedings.map((feeding) => <FeedingRow key={feeding.id} feeding={feeding} />)
-        // console.log(this.state.feedings)
+        console.log(this.state.feedings)
+        // return this.state.feedings.map((feeding) => <FeedingRow key={feeding.id} feeding={feeding} />)
     }
 
     render() {
+        console.log(this.state)
         return (
             <div>
                 <h1>All Feedings</h1>

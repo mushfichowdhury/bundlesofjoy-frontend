@@ -68,10 +68,10 @@ table.diaperTable tr:nth-child(even) {
   background: #EDEDED;
 }
 table.diaperTable thead {
-  background: #FF8200;
-  background: -moz-linear-gradient(top, #ffa140 0%, #ff8e19 66%, #FF8200 100%);
-  background: -webkit-linear-gradient(top, #ffa140 0%, #ff8e19 66%, #FF8200 100%);
-  background: linear-gradient(to bottom, #ffa140 0%, #ff8e19 66%, #FF8200 100%);
+  background: lavender;
+  background: -moz-linear-gradient(top, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
+  background: -webkit-linear-gradient(top, rgb(217, 217, 248) 0%,rgb(206, 206, 252) 66%,rgb(206, 206, 252) 100%);
+  background: linear-gradient(to bottom, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
 }
 table.diaperTable thead th {
   font-size: 15px;
@@ -96,10 +96,10 @@ table.feedingTable tr:nth-child(even) {
   background: #EDEDED;
 }
 table.feedingTable thead {
-  background: #01dfa7;
-  background: -moz-linear-gradient(top, #44fcce 0%, #21ffc8 66%, #00ffbf 100%);
-  background: -webkit-linear-gradient(top, #44fcce 0%, #21ffc8 66%, #00ffbf 100%);
-  background: linear-gradient(to bottom, #44fcce 0%, #21ffc8 66%, #00ffbf 100%);
+  background: lavender;
+  background: -moz-linear-gradient(top, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
+  background: -webkit-linear-gradient(top, rgb(217, 217, 248) 0%,rgb(206, 206, 252) 66%,rgb(206, 206, 252) 100%);
+  background: linear-gradient(to bottom, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
 }
 table.feedingTable thead th {
   font-size: 15px;
@@ -125,10 +125,10 @@ table.napTable tr:nth-child(even) {
   background: #EDEDED;
 }
 table.napTable thead {
-  background: #01dfa7;
-  background: -moz-linear-gradient(top, #ff4281 0%, #ff206a 66%, #ff0055 100%);
-  background: -webkit-linear-gradient(top, #ff4281 0%, #ff206a 66%, #ff0055 100%);
-  background: linear-gradient(to bottom, #ff4281 0%, #ff206a 66%, #ff0055 100%);
+  background: lavender;
+  background: -moz-linear-gradient(top, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
+  background: -webkit-linear-gradient(top, rgb(217, 217, 248) 0%,rgb(206, 206, 252) 66%,rgb(206, 206, 252) 100%);
+  background: linear-gradient(to bottom, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
 }
 table.napTable thead th {
   font-size: 15px;

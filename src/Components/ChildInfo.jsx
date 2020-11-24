@@ -9,15 +9,15 @@ export default function ChildInfo(props) {
         <div className="Last-Logs">
             <div className="Log-Diaper-Change" >
                 <p>test</p>
-                <LastDiaper child={props.child} />
+                {/* <LastDiaper child={props.child} /> */}
             </div>
 
             <div className="Log-Feeding" >
-                <LastFeeding child={props.child} />
+                {/* <LastFeeding child={props.child} /> */}
             </div>
 
             <div className="Log-Nap" >
-                <LastNap child={props.child} />
+                {/* <LastNap child={props.child} /> */}
             </div>
         </div>
     )

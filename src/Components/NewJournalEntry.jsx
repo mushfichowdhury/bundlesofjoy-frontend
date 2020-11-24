@@ -17,7 +17,7 @@ class NewJournalEntry extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        fetch("http://localhost:3000/journal_entries", {
+        fetch("http://localhost:3000/api/v1/journal_entries", {
         method: "POST",
         headers: {
             "content-type": "application/json"
@@ -51,9 +51,9 @@ class NewJournalEntry extends React.Component {
         return (
             <div className="new-journal-entry">
                 <form onSubmit={this.handleSubmit}>
-                    <input name="content" placeholder="Write Journal Entry" rows={10} value={this.state.content} onChange={this.handleChange}/>
+                    <input name="content" placeholder="Write Journal Entry" id="content" rows={10} value={this.state.content} onChange={this.handleChange}/>
                     <input name="image" placeholder="Photo" value={this.state.image} onChange={this.handleChange}/>
-                    <input type="submit" value="Share" />
+                    <input type="submit" placeholder="Share" />
                 </form>
             </div>
         );

@@ -9,7 +9,7 @@ export default class Diapers extends Component {
 	}
 
 	componentDidMount = () => {
-		fetch("http://localhost:3000/diapers")
+		fetch("http://localhost:3000/api/v1/diapers")
 		.then(resp => resp.json())
 		.then((data) => {
 			this.setState({
@@ -19,7 +19,7 @@ export default class Diapers extends Component {
     }
     
     submitHandler = (newDiaperChange) => {
-        fetch('http://localhost:3000/diapers', {
+        fetch('http://localhost:3000/api/v1/diapers', {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -28,12 +28,13 @@ export default class Diapers extends Component {
             body: JSON.stringify(newDiaperChange)
         })
             .then(resp => resp.json())
-            .then(diaperchange => this.setState({ diapers: [diaperchange, ...this.state.diapers] }))
+            .then(diaperchange => this.setState({ diapers: [...this.state.diapers, diaperchange] }))
             .catch(console.log)
+        this.renderDiaperChanges()
     }
 
     renderDiaperChanges = () => {
-        return this.state.diapers.map((change) => <DiaperRow key={change.id} change={change}/>)
+        return this.state.diapers.reverse().map((change) => <DiaperRow key={change.id} change={change}/>)
     }
 
     render() {

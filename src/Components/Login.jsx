@@ -1,67 +1,57 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react'
+import { Component } from 'react'
+import { connect } from 'react-redux'
+import { userLoginAction } from '../redux/actions';
+import { withRouter } from 'react-router-dom';
+import logo from '../Bundles of Joy.png'
 import './Login.css'
-import { actionTypes } from "./reducer"
-import { useStateValue } from './StateProvider'
-import { Link, Redirect } from "react-router-dom";
 
+class Login extends Component {
 
-export default function Login() {
-    const [state, dispatch] = useStateValue();
-    const [users, setUsers] = useState("");
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [user, setUser] = useState("");
-
-
-    useEffect(() => {
-        fetch("http://localhost:3000/users")
-        .then(resp => resp.json())
-        .then(users => setUsers(users))
-    }, []);
-
-    const login = (e) => {
-        console.log("login function", username, password)
-        const foundUser = users.find(obj => username === obj.username)
-        if(foundUser){
-            dispatch({
-                type: actionTypes.SET_USER,
-                user: foundUser
-            })
-            setUser(foundUser)
-            console.log("Logged in as:", dispatch.user);
-            <Redirect to="/home" />
-        } else {
-            alert("User does not exist, please sign up!")
-        }
-        
+    state = {
+        username: "",
+        password: ""
     }
-    return (
-        <div className="login">
-            <div className="login-logo">
-                <img src="https://www.clipartkey.com/mpngs/m/6-68972_baby-clipart-newborn-boy-transparent-baby-png.png" alt="" />
-            </div>
-            <form >
-                <label htmlFor="username">Username: </label>
-                <input
-                type="text"
-                value={username}
-                placeholder="enter a username"
-                onChange={({ target }) => setUsername(target.value)}
-                />
-            <div>
-                <label htmlFor="password">Password: </label>
-                <input
-                type="password"
-                value={password}
-                placeholder="enter a password"
-                onChange={({ target }) => setPassword(target.value)}
-                />
-            </div>
-            </form>
+    
 
-            <button onClick={login}>SIGN IN</button>        
-            {/* <Link to="/signup"><button>Sign Up</button></Link>
-            <Link to="/childlogin"><button>Child Log In</button></Link> */}
-        </div>
-    )
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
+    submitHandler = (e) => {
+        e.preventDefault()
+        this.props.userLogin(this.state)
+        if (localStorage.getItem("token") !== "undefined") {
+            this.props.history.push("/home")
+        }
+    }
+
+
+    render() {
+        return (
+            <div class="login"> 
+                <div className="login-form">
+                <img src={logo} alt="logo" />
+                <form>
+                    <input onChange={this.changeHandler} value={this.state.username} name="username" placeholder="Enter Username" type="text" label="username"/>
+                    <div className="divider"/>
+                    <input onChange={this.changeHandler} value={this.state.password} name="password" placeholder="Enter Password" type="password" label="password" ></input>
+                    <button type="submit" onClick={this.submitHandler}>Log in</button>
+                </form>
+                </div>
+            </div>
+        )
+    }
 }
+
+const msp = (state) => {
+    return {user: state.user}
+}
+
+const mdp = (dispatch) => {
+    return { userLogin: (user) => dispatch(userLoginAction(user, dispatch))}
+}
+
+export default connect(msp, mdp)(withRouter(Login))

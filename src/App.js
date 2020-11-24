@@ -1,18 +1,19 @@
 import './App.css';
 import { Redirect, Switch } from 'react-router-dom'
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Link } from "react-router-dom";
 import Homepage from './Components/Homepage'
 import Diapers from './Components/Diapers';
 import Naps from './Components/Naps'
 import Navbar from './Navbar'
-import axios from "axios";
 import Feedings from './Components/Feedings';
 import Login from './Components/Login'
-import { useStateValue } from './Components/StateProvider';
-import { StateProvider } from './Components/StateProvider';
+import { sessionUserAction } from './redux/actions'
+import { connect } from 'react-redux'
+import Child from './Components/Child';
 
-function App() {
+
+function App(props) {
   useEffect(() => {
     const token = localStorage.getItem("token")
     const userType = localStorage.getItem("user")
@@ -34,16 +35,23 @@ function App() {
       <Navbar/>
       <Switch>
           <div className="app-body">
+            <Route path="/login" component={Login} />
             <Route path="/home" component={Homepage} />
             <Route path="/diapers" component={Diapers} />
             <Route path="/feedings" component={Feedings} />
             <Route path="/naps" component={Naps} />
+            <Route path="/children" component={Child} />
           </div>
         </Switch>
       </div>
       )}
 
-
+      const mdp = (dispatch) => {
+        return { sessionUser: (user) => dispatch(sessionUserAction(user, dispatch))}
+      }
+      
+      
+export default connect(null, mdp)(App)
 
 
 
@@ -158,7 +166,7 @@ function App() {
 //   );
 // };
 
-export default App;
+// export default App;
 
 
 

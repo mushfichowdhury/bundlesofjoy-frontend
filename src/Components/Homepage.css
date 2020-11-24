@@ -30,9 +30,11 @@
     outline-width: 0;
     border: none;
     padding: 5px 20px;
-    margin: 0 10px;
+    margin: 0 15px;
     background-color: #eff2f5; 
-    height: 100%;
+    height: 50%;
+    border-radius: 15px;
+    box-shadow: 7px 7px 7px -7px rgba(0, 0, 0, 0.75);
 }
 
 .Log-Feeding { 
@@ -40,9 +42,11 @@
     outline-width: 0;
     border: none;
     padding: 5px 20px;
-    margin: 0 10px;
+    margin: 0 15px;
     background-color: #eff2f5; 
-    height: 100%;
+    height: 50%;
+    border-radius: 15px;
+    box-shadow: 7px 7px 7px -7px rgba(0, 0, 0, 0.75);
 }
 
 .Log-Nap { 
@@ -50,9 +54,12 @@
     outline-width: 0;
     border: none;
     padding: 5px 20px;
-    margin: 0 10px;
+    margin: 0 15px;
     background-color: #eff2f5;
-    height: 100%;
+    height: 50%;
+    border-radius: 15px;
+    box-shadow: 7px 7px 7px -7px rgba(0, 0, 0, 0.75);
+    display: table-column;
 }
     
 

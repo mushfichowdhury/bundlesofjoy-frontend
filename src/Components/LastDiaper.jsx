@@ -1,12 +1,32 @@
 import React from 'react'
 
-export default function LastDiaper(props) {
+class LastDiaper extends React.Component {
+    state = {
+        test: true
+    }
+
+    render() {
+    console.log("props", this.props.diapers[this.props.diapers.length-1])
     return (
         <div>
             <h2>Last Diaper Change</h2>
-            {/* <p>{ new Date(Date.parse(props.diaper[props.diaper.length-1].created_at)).toDateString() }</p>         */}
-            {/* {props.diaper[props.diaper.length-1].wet ? "Wet" : "Solid"}         */}
-            {/* <p>{props.diaper[props.diaper.length-1].color}</p> */}
+            
+            {!this.props ? (
+            <>
+            <p>{ new Date(Date.parse(this.props.diapers[this.props.diapers.length-1].created_at)).toDateString() }</p> 
+            {this.props.diapers[this.props.diapers.length-1].wet ? "Wet" : "Solid"}        
+            <p>{this.props.diapers[this.props.diapers.length-1].color}</p>
+            </> )
+            : 
+            (
+            <>
+            <p>Loading...</p>
+            </>
+            )
+            }
+            
         </div>
-    )
+    )}
 }
+
+export default LastDiaper

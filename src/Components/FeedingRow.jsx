@@ -11,7 +11,7 @@ const FeedingRow = (props) => {
                 <span>{ new Date(Date.parse(props.feeding.created_at)).toLocaleTimeString() }</span>
             </td>
             <td>
-                <span>{ props.feeding.method }</span>
+                <span>{ props.feeding.feeding_method }</span>
             </td>
             <td>
                 <span>{ props.feeding.duration }</span>

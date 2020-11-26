@@ -1,10 +1,8 @@
 import React from 'react';
-import HomepageNaps from './Homepage Charts/HomepageNaps';
 import JournalEntries from './JournalEntries'
 import NewJournalEntry from './NewJournalEntry'
 import ChildInfo from './ChildInfo'
 import './Homepage.css'
-import _ from 'underscore'
 import LastDiaper from './LastDiaper';
 import LastFeeding from './LastFeeding';
 import LastNap from './LastNap';
@@ -88,7 +86,7 @@ export default class Homepage extends React.Component {
     }
 
     renderChildren = () => {
-        this.state.children.filter((child) => { return child.user_id === 1 }).map((child)=> <ChildInfo key={child.id} child={child} />)
+        this.state.children.filter((child) => { return child.user_id === true }).map((child)=> <ChildInfo key={child.id} child={child} />)
     }
 
 
@@ -99,21 +97,31 @@ export default class Homepage extends React.Component {
                 <h1>Home</h1>
             </div>
             <br/><br/>
-            <div className="grid-container" >
-                {this.renderChildren()}
+            <div className="grid-container">
+                {this.state.children.length && this.state.diapers.length && this.state.feedings.length > 0 ?
+                this.renderChildren() : <p>loading...</p>
+                }
+
+                {/* {this.state.children.length && this.state.diapers.length && this.state.feedings.length > 0 ?
+                <div>
                 <div className="Last-Logs">
                 <div className="Log-Diaper-Change" >
                     <LastDiaper diapers={this.state.diapers}/>
                 </div>
 
                 <div className="Log-Feeding" >
-                    <LastFeeding/>
+                    <LastFeeding feedings={this.state.diapers}/>
                 </div>
 
                 <div className="Log-Nap" >
                     <LastNap/>
                 </div>
                 </div>
+                </div>
+                : null
+                } */}
+                
+                
                 <div className="Journal-Entries" >
                     <NewJournalEntry addEntry={this.addEntry} /> 
                     {this.renderEntries()}

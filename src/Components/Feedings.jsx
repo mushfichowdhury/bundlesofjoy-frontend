@@ -32,8 +32,8 @@ export default class Feedings extends Component {
     }
     
     renderFeedings = () => {
-        console.log(this.state.feedings)
-        // return this.state.feedings.map((feeding) => <FeedingRow key={feeding.id} feeding={feeding} />)
+        // console.log(this.state.feedings)
+        return this.state.feedings.map((feeding) => <FeedingRow key={feeding.id} feeding={feeding} />)
     }
 
     render() {

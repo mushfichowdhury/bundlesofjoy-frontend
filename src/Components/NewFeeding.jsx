@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class NewFeeding extends Component {
     state = {
-        method: "breast",
+        feeding_method: "breast",
         duration: "",
         amount: "",
     }
@@ -15,12 +15,12 @@ export default class NewFeeding extends Component {
         e.preventDefault()
         const newFeeding = {
             child_id: 2,
-            method: this.state.method,
+            feeding_method: this.state.method,
             duration: this.state.duration,
             amount: this.state.amount
         }
         this.props.submitHandler(newFeeding)
-        this.setState({ method: "breast", duration: "", amount: "" })
+        this.setState({ feeding_method: "breast", duration: "", amount: "" })
 
     }
 
@@ -33,10 +33,10 @@ export default class NewFeeding extends Component {
                 <input name="duration" type="text" value={this.state.duration} onChange={this.changeHandler} />
                 <label for="amount">Amount (oz.):</label>
                 <input name="amount" type="number" value={this.state.amount} onChange={this.changeHandler} />
-                <label for="method">Method:</label>
-                <select name="method" id="method" onChange={this.changeHandler}>
-                    <option name="method" value="breast" onChange={this.changeHandler}>Breast</option>
-                    <option name="method" value="bottle" onChange={this.changeHandler}>Bottle</option>
+                <label for="feeding_method">Method:</label>
+                <select name="feeding_method" id="feeding_method" onChange={this.changeHandler}>
+                    <option name="feeding_method" value="breast" onChange={this.changeHandler}>Breast</option>
+                    <option name="feeding_method" value="bottle" onChange={this.changeHandler}>Bottle</option>
                 </select>
 
                 <input type="submit" value="Submit"/>

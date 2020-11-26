@@ -8,7 +8,7 @@ export default function ChildInfo(props) {
     return (
         <div className="Last-Logs">
             <div className="Log-Diaper-Change" >
-                <p>test</p>
+                <p>hi</p>
                 {/* <LastDiaper child={props.child} /> */}
             </div>
 

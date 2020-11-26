@@ -11,7 +11,7 @@ class LastDiaper extends React.Component {
         <div>
             <h2>Last Diaper Change</h2>
             
-            {!this.props ? (
+            {/* {!this.props ? (
             <>
             <p>{ new Date(Date.parse(this.props.diapers[this.props.diapers.length-1].created_at)).toDateString() }</p> 
             {this.props.diapers[this.props.diapers.length-1].wet ? "Wet" : "Solid"}        
@@ -23,7 +23,11 @@ class LastDiaper extends React.Component {
             <p>Loading...</p>
             </>
             )
-            }
+            } */}
+
+            {/* <p>{ new Date(Date.parse(this.props.diapers[this.props.diapers.length-1].created_at)).toDateString() }</p> 
+            {this.props.diapers[this.props.diapers.length-1].wet ? "Wet" : "Solid"}        
+            <p>{this.props.diapers[this.props.diapers.length-1].color}</p> */}
             
         </div>
     )}

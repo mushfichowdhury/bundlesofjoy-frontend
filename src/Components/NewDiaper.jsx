@@ -9,9 +9,9 @@ export default class NewDiaper extends Component {
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
-    radioChangeHandler = (e) => {
-        this.setState({ [e.target.id]: e.target.value })
-    }
+    // radioChangeHandler = (e) => {
+    //     this.setState({ [e.target.id]: e.target.value })
+    // }
 
     localSubmitHandler = (e) => {
         e.preventDefault()

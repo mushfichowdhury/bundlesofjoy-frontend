@@ -1,6 +1,7 @@
 import React from 'react';
 import NapRow from "./NapRow"
 import NewNap from './NewNap'
+import HomepageNaps from './Homepage Charts/HomepageNaps'
 
 
 export default class Naps extends React.Component {
@@ -42,6 +43,7 @@ export default class Naps extends React.Component {
         return (
             <div >
                 <h1>All Naps</h1>
+                <HomepageNaps naps={this.state.naps}/>
                 <NewNap submitHandler={this.submitHandler} />
                 <table className="napTable" >
                     <thead style={{textAlign: "center"}}>

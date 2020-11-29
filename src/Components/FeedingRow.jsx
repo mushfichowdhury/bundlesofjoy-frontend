@@ -2,6 +2,7 @@ import React from 'react'
 
 const FeedingRow = (props) => {
 
+    console.log("Date", props.feeding.created_at)
     return (
         <tr>
             <td>

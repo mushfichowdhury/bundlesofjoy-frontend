@@ -1,21 +1,24 @@
 import React, { Component } from 'react'
 import DiaperRow from "./DiaperRow"
 import NewDiaper from './NewDiaper'
+import { connect } from 'react-redux'
+import { getDiapers } from '../redux/actions'
 
 
-export default class Diapers extends Component {
-    state = {
-		diapers: [],
-	}
+class Diapers extends Component {
+    // state = {
+	// 	diapers: [],
+	// }
 
 	componentDidMount = () => {
-		fetch("http://localhost:3000/api/v1/diapers")
-		.then(resp => resp.json())
-		.then((data) => {
-			this.setState({
-				diapers: data
-			})
-		})
+		// fetch("http://localhost:3000/api/v1/diapers")
+		// .then(resp => resp.json())
+		// .then((data) => {
+		// 	this.setState({
+		// 		diapers: data
+		// 	})
+        // })
+        this.props.getDiapers()
     }
     
     submitHandler = (newDiaperChange) => {
@@ -34,8 +37,10 @@ export default class Diapers extends Component {
     }
 
     renderDiaperChanges = () => {
-        return this.state.diapers.reverse().map((change) => <DiaperRow key={change.id} change={change}/>)
-    }
+        if(this.props.diapers === undefined){
+        } else { 
+            return this.props.diapers.reverse().map((change) => <DiaperRow key={change.id} change={change}/>)
+        }}
 
     render() {
         return (
@@ -65,4 +70,15 @@ export default class Diapers extends Component {
         )
     }
 }
+
+function mdp(dispatch) {
+    return {getDiapers: () => dispatch(getDiapers())}
+}
+
+function msp(state) {
+    return {diapers: state.diapers}
+}
+
+export default connect(msp,mdp)(Diapers)
+
 

@@ -7,7 +7,6 @@ export default class NewNap extends Component {
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
-        console.log(this.state)
     }
 
     localSubmitHandler = (e) => {
@@ -22,7 +21,6 @@ export default class NewNap extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div>
             <h3>Log Nap</h3>

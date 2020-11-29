@@ -28,7 +28,7 @@ function App(props) {
     } else {
       console.log("There is no User logged in.")
     }
-  })
+  }, [])
   
   return (
     <div className="App">

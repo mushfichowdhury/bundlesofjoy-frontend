@@ -4,7 +4,7 @@ import './JournalEntries.css'
 class JournalEntries extends React.Component {
 
     deleteHandler = () => {
-        fetch(`http://localhost:3000/journal_entries/${this.props.entry.id}`, {
+        fetch(`http://localhost:3000/api/v1/journal_entries/${this.props.entry.id}`, {
         method: "DELETE"
         })
         .then(resp => resp.json())
@@ -21,7 +21,8 @@ class JournalEntries extends React.Component {
             </div>
             <div className="post-content">
                 <div className="post-date">
-                    <h3>{ new Date(Date.parse(this.props.entry.created_at)).toDateString() }</h3>
+                    <h3 style={{justifyContent: "left"}}>{this.props.entry.title}</h3>
+                    <h4>{ new Date(Date.parse(this.props.entry.created_at)).toDateString() }</h4>
                 </div>
 
                 <div className="post-button">

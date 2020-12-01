@@ -1,12 +1,12 @@
 import React from 'react'
-import blackpoop from './images/blackpoop.png'
-import darkgreenpoop from './images/darkgreenpoop.png'
-import darkyellowpoop from './images/darkyellowpoop.png'
-import greentanpoop from './images/blackpoop.png'
-import orangepoop from './images/orangepoop.png'
-import redpoop from './images/redpoop.png'
-import whitepoop from './images/whitepoop.png'
-import yellowpoop from './images/yellowpoop.png'
+import blackpoop from '../images/blackpoop.png'
+import darkgreenpoop from '../images/darkgreenpoop.png'
+import darkyellowpoop from '../images/darkyellowpoop.png'
+import greentanpoop from '../images/greentanpoop.png'
+import orangepoop from '../images/orangepoop.png'
+import redpoop from '../images/redpoop.png'
+import whitepoop from '../images/whitepoop.png'
+import yellowpoop from '../images/yellowpoop.png'
 
 const DiaperRow = (props) => {
 
@@ -19,7 +19,7 @@ const DiaperRow = (props) => {
                 <span>{ new Date(Date.parse(props.change.created_at)).toLocaleTimeString() }</span>
             </td>
             <td>
-                <span>{ props.change.wet ? "Wet" : "Solid" }</span>
+                <span>{ props.change.texture }</span>
             </td>
             <td>
                 { props.change.color === "olive" ? <div><img src={greentanpoop} alt="" /></div> :
@@ -36,6 +36,10 @@ const DiaperRow = (props) => {
                 props.change.color === "dark yellow" ? <div><img src={darkyellowpoop} alt=""/></div>: 
                 <b>{props.change.color}</b>
                 }
+                <button>Show Photo</button>
+            </td>
+            <td>
+                <button>Edit</button><button>Delete</button>
             </td>
         </tr>
     )

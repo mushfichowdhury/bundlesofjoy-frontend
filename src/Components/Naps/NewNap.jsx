@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import { newNap } from '../../redux/actions'
 
-export default class NewNap extends Component {
+class NewNap extends Component {
     state = {
         duration: "",
     }
@@ -11,11 +13,12 @@ export default class NewNap extends Component {
 
     localSubmitHandler = (e) => {
         e.preventDefault()
-        const newNap = {
+        const newNapObj = {
             child_id: 2,
             duration: this.state.duration,
         }
-        this.props.submitHandler(newNap)
+        this.props.submitHandler(newNapObj)
+        console.log(newNapObj)
         this.setState({ duration: "" })
 
     }
@@ -35,3 +38,10 @@ export default class NewNap extends Component {
     }
 }
 
+function mdp(dispatch) {
+    return {
+        submitHandler: (newNapObj) => dispatch(newNap(newNapObj)),
+    }
+}
+
+export default connect(null, mdp)(NewNap)

@@ -2,45 +2,29 @@ import React, { Component } from 'react'
 import DiaperRow from "./DiaperRow"
 import NewDiaper from './NewDiaper'
 import { connect } from 'react-redux'
-import { getDiapers } from '../redux/actions'
+import { getDiapers } from '../../redux/actions'
 
 
 class Diapers extends Component {
-    // state = {
-	// 	diapers: [],
-	// }
+    state = {
+		diapers: [],
+	}
 
 	componentDidMount = () => {
-		// fetch("http://localhost:3000/api/v1/diapers")
-		// .then(resp => resp.json())
-		// .then((data) => {
-		// 	this.setState({
-		// 		diapers: data
-		// 	})
-        // })
+        if(this.props.user === null){
+            this.props.routerProps.history.push("/login")
+        }
         this.props.getDiapers()
     }
-    
-    submitHandler = (newDiaperChange) => {
-        fetch('http://localhost:3000/api/v1/diapers', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-                accepts: "application/json"
-            },
-            body: JSON.stringify(newDiaperChange)
-        })
-            .then(resp => resp.json())
-            .then(diaperchange => this.setState({ diapers: [...this.state.diapers, diaperchange] }))
-            .catch(console.log)
-        this.renderDiaperChanges()
-    }
+
 
     renderDiaperChanges = () => {
-        if(this.props.diapers === undefined){
-        } else { 
-            return this.props.diapers.reverse().map((change) => <DiaperRow key={change.id} change={change}/>)
-        }}
+        // if(this.props.diapers === undefined){
+        // } else { 
+        //     return this.props.diapers.reverse().map((change) => <DiaperRow key={change.id} change={change}/>)
+        // }
+        return this.props.diapers.reverse().map((change) => <DiaperRow key={change.id} change={change}/>)
+    }
 
     render() {
         return (
@@ -61,6 +45,9 @@ class Diapers extends Component {
                             </th>
                             <th>
                                 Color
+                            </th>
+                            <th>
+                                Action
                             </th>
                         </tr>
                     </thead>

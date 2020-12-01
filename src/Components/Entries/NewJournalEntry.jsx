@@ -1,10 +1,13 @@
 import React from "react";
+import { connect } from 'react-redux'
+import { newEntry } from '../../redux/actions'
 import "./NewJournalEntry.css"
 
 class NewJournalEntry extends React.Component {
 
     state={
         user_id: 1,
+        title: "",
         image: "",
         content: "",
     }
@@ -17,20 +20,11 @@ class NewJournalEntry extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        fetch("http://localhost:3000/api/v1/journal_entries", {
-        method: "POST",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify(this.state)
-        })
-        .then(resp => resp.json())
-        .then((newEntry) => {
-            this.props.addEntry(newEntry)
-        })
+        this.props.handleSubmit(this.state)
         // this.resetForm(e)
         this.setState=({
             user_id: 1,
+            title: "",
             image: "",
             content: "",
         })
@@ -47,10 +41,10 @@ class NewJournalEntry extends React.Component {
     // }
     
     render() {
-        console.log("Entry", this.state)
         return (
             <div className="new-journal-entry">
                 <form onSubmit={this.handleSubmit}>
+                    <input name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange}/>
                     <input name="content" placeholder="Write Journal Entry" id="content" rows={10} value={this.state.content} onChange={this.handleChange}/>
                     <input name="image" placeholder="Photo" value={this.state.image} onChange={this.handleChange}/>
                     <input type="submit" placeholder="Share" />
@@ -60,4 +54,11 @@ class NewJournalEntry extends React.Component {
     }
 }
 
-export default NewJournalEntry;
+function mdp(dispatch){
+    return { 
+        handleSubmit: (newEntryObj) => dispatch(newEntry(newEntryObj))
+    }
+}
+
+export default connect(null, mdp)(NewJournalEntry)
+

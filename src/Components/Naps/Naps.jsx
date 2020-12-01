@@ -1,49 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { getNaps } from '../../redux/actions'
 import NapRow from "./NapRow"
 import NewNap from './NewNap'
-import HomepageNaps from './Homepage Charts/HomepageNaps'
+import HomepageNaps from '../Graphs/HomepageNaps'
 
 
-export default class Naps extends React.Component {
+class Naps extends React.Component {
     state = {
 		naps: [],
 	}
 
 	componentDidMount = () => {
-		fetch("http://localhost:3000/api/v1/naps")
-		.then(resp => resp.json())
-		.then((data) => {
-			this.setState({
-				naps: data
-			})
-		})
+    if(this.props.user === null){
+        this.props.routerProps.history.push("/login")
     }
-
-    submitHandler = (newNap) => {
-        fetch('http://localhost:3000/api/v1/naps', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-                accepts: "application/json"
-            },
-            body: JSON.stringify(newNap)
-        })
-            .then(resp => resp.json())
-            .then(nap => this.setState({
-                naps: nap
-            }))
-            .catch(console.log)
+    this.props.getNaps()
     }
     
     renderNaps = () => {
-        return this.state.naps.reverse().map((nap) => <NapRow key={nap.id} nap={nap} />)
+        return this.props.naps.reverse().map((nap) => <NapRow key={nap.id} nap={nap} />)
     }
     render(){
-        console.log("naps", this.state.naps)
         return (
             <div >
                 <h1>All Naps</h1>
-                <HomepageNaps naps={this.state.naps}/>
+                <HomepageNaps/>
                 <NewNap submitHandler={this.submitHandler} />
                 <table className="napTable" >
                     <thead style={{textAlign: "center"}}>
@@ -65,3 +47,13 @@ export default class Naps extends React.Component {
         )}
 }
 
+
+function mdp(dispatch) {
+    return {getNaps: () => dispatch(getNaps())}
+}
+
+function msp(state) {
+    return {naps: state.naps}
+}
+
+export default connect(msp,mdp)(Naps)

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { userLoginAction } from '../redux/actions';
+import { userLoginAction } from '../../redux/actions';
 import { withRouter } from 'react-router-dom';
-import logo from '../Bundles of Joy.png'
+import logo from '../../Bundles of Joy.png'
 import './Login.css'
 
 class Login extends Component {
@@ -24,7 +24,7 @@ class Login extends Component {
         e.preventDefault()
         this.props.userLogin(this.state)
         if (localStorage.getItem("token") !== "undefined") {
-            this.props.history.push("/home")
+            this.props.routerProps.history.push("/home")
         }
     }
 

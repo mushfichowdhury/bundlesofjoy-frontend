@@ -1,28 +1,29 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import { newDiaper } from '../../redux/actions'
 
-export default class NewDiaper extends Component {
+class NewDiaper extends Component {
     state = {
         texture: "",
         color: "olive",
+        image: ""
     }
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
-    // radioChangeHandler = (e) => {
-    //     this.setState({ [e.target.id]: e.target.value })
-    // }
 
     localSubmitHandler = (e) => {
         e.preventDefault()
         const newDiaperChange = {
             child_id: 2,
             texture: this.state.texture,
-            color: this.state.color
+            color: this.state.color,
+            image: this.state.image
 
         }
         this.props.submitHandler(newDiaperChange)
-        this.setState({ texture: "", color: "olive" })
+        this.setState({ texture: "", color: "olive", image: "" })
     }
 
     render() {
@@ -52,6 +53,10 @@ export default class NewDiaper extends Component {
                     <option name="color" value="black" onChange={this.changeHandler}>Black</option>
                 </select>
 
+                <label for="image">Image:</label>
+                <input name="image" type="text" value={this.state.image} onChange={this.changeHandler} />
+
+
                 <input type="submit" value="Submit"/>
             </form>
             <br/>
@@ -60,3 +65,10 @@ export default class NewDiaper extends Component {
     }
 }
 
+function mdp(dispatch) {
+    return {
+        submitHandler: (newDiaperObj) => dispatch(newDiaper(newDiaperObj)),
+    }
+}
+
+export default connect(null, mdp)(NewDiaper)

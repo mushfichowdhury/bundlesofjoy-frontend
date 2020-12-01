@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
 import Chart from "chart.js";
+import { connect } from 'react-redux'
+import { getNaps } from '../../redux/actions'
 
 class HomepageNaps extends Component {	
     state = {
-        diapers: [],
+        naps: [],
+        lastNaps: [],
+        lastDuration: []
     }
     chartRef = React.createRef();
 
+    componentDidMount = () => {
+        this.props.getNaps()
+        const created = this.props.naps.filter(nap => nap.created_at)
+        const duration = this.props.naps.filter(nap => nap.duration)
+
+        this.setState({
+            lastNaps: created,
+            lastDuration: duration
+        })
+    }
     checkData() {
-        console.log("Label", this.props.diapers)
+        console.log("Label", this.props.lastNaps)
     }
 
     componentDidMount() {
@@ -17,11 +31,11 @@ class HomepageNaps extends Component {
             type: "line",
             data: {
                 //Bring in data
-                labels: this.props.naps.created_at,
+                labels: this.state.lastNaps,
                 datasets: [
                     {
                         label: "Duration",
-                        data: this.props.naps.duration,
+                        data: this.state.duration,
                     }
                 ]
             },
@@ -32,13 +46,6 @@ class HomepageNaps extends Component {
     }
 
     render() {
-        if(this.props.diapers) {
-            this.setState({
-                diapers: this.props.diapers
-            })
-        } else {
-            this.checkData()
-        }
         return (
             <div style={{width: "700px", margin: "auto"}}>
                 <canvas
@@ -50,4 +57,13 @@ class HomepageNaps extends Component {
     }
 }
 
-export default HomepageNaps
+
+function mdp(dispatch) {
+    return {getNaps: () => dispatch(getNaps())}
+}
+
+function msp(state) {
+    return {naps: state.naps}
+}
+
+export default connect(msp,mdp)(HomepageNaps)

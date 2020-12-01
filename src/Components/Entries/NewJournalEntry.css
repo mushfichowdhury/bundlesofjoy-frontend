@@ -4,8 +4,9 @@
     padding: 30px;
     flex-direction: column;
     border-radius: 15px;
-    box-shadow: 7px 7px 7px -7px rgba(0, 0, 0, 0.75);
+    box-shadow: 7px 7px 17px -7px rgba(0, 0, 0, 0.75);
     width: 100%;
+    border: black;
 }
 
 .new-journal-entry > form > input {

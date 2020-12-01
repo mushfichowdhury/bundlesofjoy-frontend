@@ -2,7 +2,6 @@ import React from 'react'
 
 const FeedingRow = (props) => {
 
-    console.log("Date", props.feeding.created_at)
     return (
         <tr>
             <td>
@@ -12,10 +11,7 @@ const FeedingRow = (props) => {
                 <span>{ new Date(Date.parse(props.feeding.created_at)).toLocaleTimeString() }</span>
             </td>
             <td>
-                <span>{ props.feeding.feeding_method }</span>
-            </td>
-            <td>
-                <span>{ props.feeding.duration }</span>
+                {props.feeding.food ? <span>{ props.feeding.food }</span> : <span>{ props.feeding.feeding_method }</span>}
             </td>
             <td>
                 <span>{ props.feeding.amount } oz.</span>

@@ -43,6 +43,9 @@ class Feedings extends Component {
                                 <th>
                                     Amount
                                 </th>
+                                <th>
+                                    Action
+                                </th>
                             </tr>
                         </thead>
                         <tbody>{this.renderFeedings()}</tbody>

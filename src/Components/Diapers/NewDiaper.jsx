@@ -4,7 +4,7 @@ import { newDiaper } from '../../redux/actions'
 
 class NewDiaper extends Component {
     state = {
-        texture: "",
+        texture: "soft",
         color: "olive",
         image: ""
     }

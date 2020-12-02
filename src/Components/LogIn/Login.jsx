@@ -2,7 +2,7 @@ import React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { userLoginAction } from '../../redux/actions';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import logo from '../../Bundles of Joy.png'
 import './Login.css'
 
@@ -22,14 +22,14 @@ class Login extends Component {
 
     submitHandler = (e) => {
         e.preventDefault()
+        console.log("test test")
         this.props.userLogin(this.state)
-        if (localStorage.getItem("token") !== "undefined") {
-            this.props.routerProps.history.push("/home")
-        }
     }
 
 
     render() {
+        if(this.props.user) {
+            return <Redirect to="/home"/>}
         return (
             <div class="login"> 
                 <div className="login-form">

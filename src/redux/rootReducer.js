@@ -6,7 +6,8 @@ const defaultState = {
     feedings: [],
     naps: [],
     entries: [],
-    children: []
+    children: [],
+    counter: 0
 }
 
 function userLoginReducer(state=defaultState.user, action) {
@@ -33,6 +34,9 @@ function diapersReducer(state = defaultState.diapers, action) {
         case "EDIT_DIAPER":
             let newArray = state.filter(diaperChange => diaperChange.id !== action.payload.id)
             return [...newArray, action.payload]
+        case "DELETE_DIAPER":
+            let updatedArray = state.filter(diaperChange => diaperChange.id !== action.payload.id)
+            return [...updatedArray]
         default:
             return state
         }
@@ -47,6 +51,9 @@ function feedingsReducer(state = defaultState.feedings, action) {
         case "EDIT_FEEDING":
             let newArray = state.filter(feeding => feeding.id !== action.payload.id)
             return [...newArray, action.payload]
+        case "DELETE_FEEDING":
+            let updatedArray = state.filter(feeding => feeding.id !== action.payload.id)
+            return [...updatedArray]
         default:
             return state
         }
@@ -61,6 +68,9 @@ function napsReducer(state = defaultState.naps, action) {
         case "EDIT_NAP":
             let newArray = state.filter(nap => nap.id !== action.payload.id)
             return [...newArray, action.payload]
+        case "DELETE_NAP":
+            let updatedArray = state.filter(nap => nap.id !== action.payload.id)
+            return [...updatedArray]
         default:
             return state
         }
@@ -75,6 +85,9 @@ function entriesReducer(state = defaultState.entries, action) {
         case "EDIT_ENTRY":
             let newArray = state.filter(entry => entry.id !== action.payload.id)
             return [...newArray, action.payload]
+        case "DELETE_ENTRY":
+            let updatedArray = state.filter(entry => entry.id !== action.payload.id)
+            return [...updatedArray]
         default:
             return state
         }
@@ -86,9 +99,24 @@ function childrenReducer(state = defaultState.children, action) {
             return action.payload
         case "ADD_CHILD":
             return [...state, action.payload]
+        case "DELETE_CHILD":
+            let updatedArray = state.filter(child => child.id !== action.payload.id)
+            return [...updatedArray]
         default:
             return state
         }
+};
+
+function counterReducer(state = defaultState.counter, action) {
+    switch (action.type) {
+        case "INCREMENT_COUNTER":
+            console.log("counter incrementing");
+            return ++state;
+            break;
+        default:
+            return state;
+            break;
+    }
 };
 
 const rootReducer = combineReducers({
@@ -97,7 +125,8 @@ const rootReducer = combineReducers({
     feedings: feedingsReducer,
     naps: napsReducer,
     entries: entriesReducer,
-    children: childrenReducer
+    children: childrenReducer,
+    counter: counterReducer
 })
 
 export default rootReducer

@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { deleteDiaperChange } from '../../redux/actions'
 import blackpoop from '../images/blackpoop.png'
 import darkgreenpoop from '../images/darkgreenpoop.png'
 import darkyellowpoop from '../images/darkyellowpoop.png'
@@ -9,7 +11,10 @@ import whitepoop from '../images/whitepoop.png'
 import yellowpoop from '../images/yellowpoop.png'
 
 const DiaperRow = (props) => {
-
+    const deleteHandler = () => {
+        console.log("deleting diaper", props.change.id)
+        props.reduxDeleteHandler(props.change.id)
+    }
     return (
         <tr>
             <td>
@@ -21,7 +26,7 @@ const DiaperRow = (props) => {
             <td>
                 <span>{ props.change.texture }</span>
             </td>
-            <td>
+            <td className="hover-action">
                 { props.change.color === "olive" ? <div><img src={greentanpoop} alt="" /></div> :
                 props.change.color === "dark green" ? <div><img src={darkgreenpoop} alt=""/></div>: 
                 props.change.color === "red" ? <div><img src={redpoop} alt=""/></div>: 
@@ -39,7 +44,7 @@ const DiaperRow = (props) => {
                 <button>Show Photo</button>
             </td>
             <td>
-                <button>Edit</button><button>Delete</button>
+                <button onClick={deleteHandler}>Delete</button>
             </td>
         </tr>
     )
@@ -47,4 +52,10 @@ const DiaperRow = (props) => {
 // props.change.color === "dark yellow" ? <div><b><span style={{color: "darkyellow"}}>dark yellow</span></b> <img src={darkyellowpoop} alt=""/></div>: 
 
 
-export default DiaperRow
+function mdp(dispatch) {
+    return {
+        reduxDeleteHandler: (diaperObj) => dispatch(deleteDiaperChange(diaperObj)),
+    }
+}
+
+export default connect(null, mdp)(DiaperRow)

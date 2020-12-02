@@ -43,7 +43,7 @@ componentDidMount = () => {
 render() {
 return (
 	<div className="App">
-	{(this.props.user === null) ? <></> : <Navbar/> }
+	{(this.props.user === null) ? null : <Navbar/> }
 	<Switch>
 		<div className="app-body">
 			<Route path="/login" render={ routerProps => <Login routerProps={routerProps}  /> } />

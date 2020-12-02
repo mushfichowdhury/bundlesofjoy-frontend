@@ -132,6 +132,18 @@ export function editDiaperChange(editedDiaperChange) {
     };
 };
 
+export function deleteDiaperChange(diaperObj) {
+    return function (dispatch) {
+    fetch(`http://localhost:3000/api/v1/diapers/${diaperObj}`, {
+        method: "DELETE",
+    })
+        .then(resp => resp.json())
+        .then(payload => dispatch({ type: "DELETE_DIAPER", payload }))
+        .catch(console.log)
+
+    };
+};
+
 export function newFeeding(newFeeding) {
     return function (dispatch) {
     fetch('http://localhost:3000/api/v1/feedings', {
@@ -245,6 +257,54 @@ export function newChild(newChild) {
     })
         .then(resp => resp.json())
         .then(payload => dispatch({ type: "ADD_CHILD", payload }))
+        .catch(console.log)
+
+    };
+};
+
+export function deleteFeeding(feedingObj) {
+    return function (dispatch) {
+    fetch(`http://localhost:3000/api/v1/feedings/${feedingObj}`, {
+        method: "DELETE",
+    })
+        .then(resp => resp.json())
+        .then(payload => dispatch({ type: "DELETE_FEEDING", payload }))
+        .catch(console.log)
+
+    };
+};
+
+export function deleteNap(napObj) {
+    return function (dispatch) {
+    fetch(`http://localhost:3000/api/v1/naps/${napObj}`, {
+        method: "DELETE",
+    })
+        .then(resp => resp.json())
+        .then(payload => dispatch({ type: "DELETE_NAP", payload }))
+        .catch(console.log)
+
+    };
+};
+
+export function deleteEntry(entryObj) {
+    return function (dispatch) {
+    fetch(`http://localhost:3000/api/v1/journal_entries/${entryObj}`, {
+        method: "DELETE",
+    })
+        .then(resp => resp.json())
+        .then(payload => dispatch({ type: "DELETE_ENTRY", payload }))
+        .catch(console.log)
+
+    };
+};
+
+export function deleteChild(childObj) {
+    return function (dispatch) {
+    fetch(`http://localhost:3000/api/v1/children/${childObj}`, {
+        method: "DELETE",
+    })
+        .then(resp => resp.json())
+        .then(payload => dispatch({ type: "DELETE_CHILD", payload }))
         .catch(console.log)
 
     };

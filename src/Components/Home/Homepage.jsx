@@ -63,7 +63,7 @@ class Homepage extends React.Component {
 
 
     render() {
-        console.log("render", this.state)
+        console.log("render", this.props.user)
     return (
         <div>
             <div className="App">

@@ -1,16 +1,13 @@
 import React from "react";
+import { connect } from 'react-redux'
+import { deleteEntry } from '../../redux/actions'
 import './JournalEntries.css'
 
 class JournalEntries extends React.Component {
 
     deleteHandler = () => {
-        fetch(`http://localhost:3000/api/v1/journal_entries/${this.props.entry.id}`, {
-        method: "DELETE"
-        })
-        .then(resp => resp.json())
-        .then((data) => {
-            this.props.removeEntry(this.props.entry)
-        })
+        console.log("deleting entry", this.props.entry.id)
+        this.props.reduxDeleteHandler(this.props.entry.id)
     }
 
     render() {
@@ -21,7 +18,7 @@ class JournalEntries extends React.Component {
             </div>
             <div className="post-content">
                 <div className="post-date">
-                    <h3 style={{justifyContent: "left"}}>{this.props.entry.title}</h3>
+                    {/* <h3 style={{justifyContent: "left"}}>{this.props.entry.title}</h3> */}
                     <h4>{ new Date(Date.parse(this.props.entry.created_at)).toDateString() }</h4>
                 </div>
 
@@ -38,4 +35,10 @@ class JournalEntries extends React.Component {
     }
 }
 
-export default JournalEntries;
+function mdp(dispatch) {
+    return {
+        reduxDeleteHandler: (entryObj) => dispatch(deleteEntry(entryObj)),
+    }
+}
+
+export default connect(null, mdp)(JournalEntries)

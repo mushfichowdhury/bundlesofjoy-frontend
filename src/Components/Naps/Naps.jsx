@@ -39,6 +39,9 @@ class Naps extends React.Component {
                             <th>
                                 Duration
                             </th>
+                            <th>
+                                Action
+                            </th>
                         </tr>
                     </thead>
                     <tbody>{this.renderNaps()}</tbody>

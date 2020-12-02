@@ -1,7 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { deleteNap } from '../../redux/actions'
 
 const NapRow = (props) => {
 
+    const deleteHandler = () => {
+        console.log("deleting nap", props.nap.id)
+        props.reduxDeleteHandler(props.nap.id)
+    }
     return (
         <tr>
             <td>
@@ -13,8 +19,17 @@ const NapRow = (props) => {
             <td>
                 <span>{ props.nap.duration }</span>
             </td>
+            <td>
+                <button onClick={deleteHandler}>Delete</button>
+            </td>
         </tr>
     )
 }
 
-export default NapRow
+function mdp(dispatch) {
+    return {
+        reduxDeleteHandler: (napObj) => dispatch(deleteNap(napObj)),
+    }
+}
+
+export default connect(null, mdp)(NapRow)

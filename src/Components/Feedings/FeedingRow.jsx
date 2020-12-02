@@ -1,6 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { deleteFeeding } from '../../redux/actions'
 
 const FeedingRow = (props) => {
+
+    const deleteHandler = () => {
+        console.log("deleting feeding", props.feeding.id)
+        props.reduxDeleteHandler(props.feeding.id)
+    }
 
     return (
         <tr>
@@ -16,8 +23,17 @@ const FeedingRow = (props) => {
             <td>
                 <span>{ props.feeding.amount } oz.</span>
             </td>
+            <td>
+                <button onClick={deleteHandler}>Delete</button>
+            </td>
         </tr>
     )
 }
 
-export default FeedingRow
+function mdp(dispatch) {
+    return {
+        reduxDeleteHandler: (feedingObj) => dispatch(deleteFeeding(feedingObj)),
+    }
+}
+
+export default connect(null, mdp)(FeedingRow)

@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: lavender;
+    background-color: rgb(207, 207, 250);
     padding: 5vh 5vw 5vh 5vw;
     height: 2vh;
     align-items: center;

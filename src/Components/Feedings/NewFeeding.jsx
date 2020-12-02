@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import { Button, Form } from 'semantic-ui-react'
 import { newFeeding } from '../../redux/actions'
 
 
@@ -32,24 +33,27 @@ class NewFeeding extends Component {
         return (
             <div>
             <h3>Log Feeding</h3>
-            <form onSubmit={this.localSubmitHandler} >
-
+            <Form onSubmit={this.localSubmitHandler} >
+            <Form.Group inline widths='equal' style={{padding: "0px 325px 0px 325px"}}>
+                <Form.Field inline width={8}>
                 <label for="food">Food:</label>
                 <input name="food" type="text" value={this.state.food} onChange={this.changeHandler} />
-                
+                </Form.Field>
+                <Form.Field inline width={8}>
                 <label for="feeding_method">Milk:</label>
                 <select name="feeding_method" id="feeding_method" onChange={this.changeHandler}>
                     <option name="feeding_method" value="" onChange={this.changeHandler}>n/a</option>
                     <option name="feeding_method" value="breast" onChange={this.changeHandler}>Breast</option>
                     <option name="feeding_method" value="bottle" onChange={this.changeHandler}>Bottle</option>
                 </select>
-                
-
+                </Form.Field>
+                <Form.Field inline width={8}>
                 <label for="amount">Amount (oz.):</label>
                 <input name="amount" type="number" value={this.state.amount} onChange={this.changeHandler} />
-
-                <input type="submit" value="Submit"/>
-            </form>
+                </Form.Field>
+                <Button style={{background: "rgb(207, 207, 250)", color: "white"}} type="submit" value="Submit">Submit</Button>
+                </Form.Group>
+            </Form>
             <br/>
             </div>
         )

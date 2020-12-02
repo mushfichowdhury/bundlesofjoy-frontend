@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import Homepage from './Components//Home/Homepage'
 import Diapers from './Components//Diapers/Diapers';
 import Naps from './Components/Naps/Naps'
-import Navbar from './Navbar'
+import Navbar from './Components/Navbar'
 import Feedings from './Components/Feedings/Feedings';
 import Login from './Components/LogIn/Login'
 import Child from './Components/Child/Child';

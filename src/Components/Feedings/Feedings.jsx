@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Table } from 'semantic-ui-react'
 import { getFeedings } from '../../redux/actions'
 import FeedingRow from "./FeedingRow"
 import NewFeeding from './NewFeeding'
@@ -28,28 +29,28 @@ class Feedings extends Component {
             <div>
                 <h1>All Feedings</h1>
                 <NewFeeding />
-                    <table className="feedingTable" >
-                        <thead style={{textAlign: "center"}}>
-                            <tr>
-                                <th >
+                    <Table className="feedingTable" >
+                        <Table.Header style={{textAlign: "center"}}>
+                            <Table.Row>
+                                <Table.HeaderCell >
                                     Date
-                                </th>
-                                <th >
+                                </Table.HeaderCell>
+                                <Table.HeaderCell >
                                     Time
-                                </th>
-                                <th >
+                                </Table.HeaderCell>
+                                <Table.HeaderCell >
                                     Meal
-                                </th>
-                                <th>
+                                </Table.HeaderCell>
+                                <Table.HeaderCell>
                                     Amount
-                                </th>
-                                <th>
+                                </Table.HeaderCell>
+                                <Table.HeaderCell>
                                     Action
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>{this.renderFeedings()}</tbody>
-                    </table>
+                                </Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+                        <Table.Body>{this.renderFeedings()}</Table.Body>
+                    </Table>
             </div>
         )
     }

@@ -48,7 +48,7 @@ td {
   border: 0.5px solid #0000001e;
   padding: 5px;
 } */
-
+/*
 table.diaperTable {
   margin: auto;
   width: 80%;
@@ -56,7 +56,7 @@ table.diaperTable {
   border-collapse: collapse;
   overflow-y:scroll;
   height:500px;
-  /* display:block; */
+  display:block;
 }
 table.diaperTable td, table.diaperTable th {
   padding: 15px;
@@ -146,4 +146,30 @@ table.napTable thead th {
   font-weight: bold;
   color: #FFFFFF;
   text-align: center;
+}*/
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 1px);
+  }
+
+  65% {
+      transform: translate(0, 5px);
+  }
+  100% {
+      transform: translate(0, 1px);
+  }
 }
+
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.floating-size {
+  width: 40px;
+  height: 100%;
+}
+

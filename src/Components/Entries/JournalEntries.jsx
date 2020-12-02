@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
+import { Button } from "semantic-ui-react";
 import { deleteEntry } from '../../redux/actions'
 import './JournalEntries.css'
 
@@ -23,7 +24,7 @@ class JournalEntries extends React.Component {
                 </div>
 
                 <div className="post-button">
-                    <button onClick={this.deleteHandler}> Delete </button>
+                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.deleteHandler}> Delete </Button>
                 </div>
 
                 <div className="post-text" >

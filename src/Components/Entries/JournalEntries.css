@@ -41,5 +41,7 @@
     border-radius: 15px 0px 0px 15px;
 }
 
-
-
+.item:hover {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}

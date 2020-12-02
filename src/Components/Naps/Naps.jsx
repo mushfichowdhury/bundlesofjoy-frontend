@@ -4,6 +4,7 @@ import { getNaps } from '../../redux/actions'
 import NapRow from "./NapRow"
 import NewNap from './NewNap'
 import HomepageNaps from '../Graphs/HomepageNaps'
+import { Table } from 'semantic-ui-react';
 
 
 class Naps extends React.Component {
@@ -25,27 +26,27 @@ class Naps extends React.Component {
         return (
             <div >
                 <h1>All Naps</h1>
-                <HomepageNaps/>
+                {/* <HomepageNaps/> */}
                 <NewNap submitHandler={this.submitHandler} />
-                <table className="napTable" >
-                    <thead style={{textAlign: "center"}}>
-                        <tr>
-                            <th >
+                <Table striped className="napTable" >
+                    <Table.Header style={{textAlign: "center"}}>
+                        <Table.Row>
+                            <Table.HeaderCell >
                                 Date
-                            </th>
-                            <th >
+                            </Table.HeaderCell>
+                            <Table.HeaderCell >
                                 Time
-                            </th>
-                            <th>
+                            </Table.HeaderCell>
+                            <Table.HeaderCell>
                                 Duration
-                            </th>
-                            <th>
+                            </Table.HeaderCell>
+                            <Table.HeaderCell>
                                 Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>{this.renderNaps()}</tbody>
-                </table>
+                            </Table.HeaderCell>
+                        </Table.Row>
+                    </Table.Header>
+                    <Table.Body>{this.renderNaps()}</Table.Body>
+                </Table>
             </div>
         )}
 }

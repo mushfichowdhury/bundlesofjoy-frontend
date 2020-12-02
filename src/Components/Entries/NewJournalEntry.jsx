@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
+import { Button, Form } from "semantic-ui-react";
 import { newEntry } from '../../redux/actions'
 import "./NewJournalEntry.css"
 
@@ -34,12 +35,20 @@ class NewJournalEntry extends React.Component {
     render() {
         return (
             <div className="new-journal-entry">
-                <form onSubmit={this.handleSubmit}>
-                    <input name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange}/>
-                    <input name="content" placeholder="Write Journal Entry" id="content" rows={10} value={this.state.content} onChange={this.handleChange}/>
-                    <input name="image" placeholder="Photo" value={this.state.image} onChange={this.handleChange}/>
-                    <input type="submit" placeholder="Share" />
-                </form>
+                <Form onSubmit={this.handleSubmit}>
+                <Form.Group widths='equal'>
+                    <Form.Field>
+                    <Form.Input name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange}/>
+                    </Form.Field>
+                    
+                    <Form.Field>
+                    <Form.Input name="image" placeholder="Photo" value={this.state.image} onChange={this.handleChange}/>
+                    </Form.Field>
+                    </Form.Group>
+
+                    <Form.TextArea name="content" placeholder="Write Journal Entry" id="content" value={this.state.content} onChange={this.handleChange}/>
+                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} type="submit">Post</Button>
+                </Form>
             </div>
         );
     }

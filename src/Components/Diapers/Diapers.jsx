@@ -3,6 +3,7 @@ import DiaperRow from "./DiaperRow"
 import NewDiaper from './NewDiaper'
 import { connect } from 'react-redux'
 import { getDiapers } from '../../redux/actions'
+import { Table } from 'semantic-ui-react'
 
 
 class Diapers extends Component {
@@ -40,30 +41,30 @@ class Diapers extends Component {
         return (
             <div>
                 <h1>All Diaper Changes</h1>
-                <h2>Number of Diapers Left: {this.state.counter - this.props.diapers.length} <input name="counter" onSubmit={this.diaperSubmitHandler}></input></h2>
+                <h2>Number of Diapers Left: {this.state.counter - this.props.diapers.length}</h2>
                 <NewDiaper submitHandler={this.submitHandler}/>
-                <table className="diaperTable" >
-                    <thead style={{textAlign: "center"}}>
-                        <tr>
-                            <th >
+                <Table striped className="diaperTable">
+                    <Table.Header style={{textAlign: "center"}}>
+                        <Table.Row style={{textAlign: "center"}}>
+                            <Table.HeaderCell >
                                 Date
-                            </th>
-                            <th >
+                            </Table.HeaderCell>
+                            <Table.HeaderCell >
                                 Time
-                            </th>
-                            <th>
+                            </Table.HeaderCell>
+                            <Table.HeaderCell>
                                 Quality
-                            </th>
-                            <th>
+                            </Table.HeaderCell>
+                            <Table.HeaderCell>
                                 Color
-                            </th>
-                            <th>
+                            </Table.HeaderCell>
+                            <Table.HeaderCell>
                                 Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>{this.renderDiaperChanges()}</tbody>
-                </table>
+                            </Table.HeaderCell>
+                        </Table.Row>
+                    </Table.Header>
+                    <Table.Body>{this.renderDiaperChanges()}</Table.Body>
+                </Table>
             </div>
         )
     }

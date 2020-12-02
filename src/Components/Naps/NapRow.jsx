@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Button, Table } from 'semantic-ui-react'
 import { deleteNap } from '../../redux/actions'
 
 const NapRow = (props) => {
@@ -9,20 +10,20 @@ const NapRow = (props) => {
         props.reduxDeleteHandler(props.nap.id)
     }
     return (
-        <tr>
-            <td>
+        <Table.Row style={{textAlign: "center"}}>
+            <Table.Cell>
                 <span>{ new Date(Date.parse(props.nap.created_at)).toDateString() }</span>
-            </td>
-            <td>
+            </Table.Cell>
+            <Table.Cell>
                 <span>{ new Date(Date.parse(props.nap.created_at)).toLocaleTimeString() }</span>
-            </td>
-            <td>
+            </Table.Cell>
+            <Table.Cell>
                 <span>{ props.nap.duration }</span>
-            </td>
-            <td>
-                <button onClick={deleteHandler}>Delete</button>
-            </td>
-        </tr>
+            </Table.Cell>
+            <Table.Cell>
+                <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={deleteHandler}>Delete</Button>
+            </Table.Cell>
+        </Table.Row>
     )
 }
 

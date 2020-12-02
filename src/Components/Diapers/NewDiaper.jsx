@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import { Button, Form } from 'semantic-ui-react'
 import { newDiaper } from '../../redux/actions'
 
 class NewDiaper extends Component {
@@ -30,8 +31,9 @@ class NewDiaper extends Component {
         return (
             <div>
             <h3>Log Diaper Change</h3>
-            <form onSubmit={this.localSubmitHandler} >
-
+            <Form onSubmit={this.localSubmitHandler} >
+                <Form.Group inline widths='equal' style={{padding: "0px 300px 0px 300px"}}>
+                <Form.Field inline width={3}>
                 <label for="texture">Texture:</label>
                 <select name="texture" id="texture" onChange={this.changeHandler}>
                     <option name="texture" value="soft" onChange={this.changeHandler}>Soft</option>
@@ -40,7 +42,8 @@ class NewDiaper extends Component {
                     <option name="texture" value="firm" onChange={this.changeHandler}>Firm</option>
                     <option name="texture" value="pellets" onChange={this.changeHandler}>Pellets</option>
                 </select>
-
+                </Form.Field>
+                <Form.Field inline width={3}>
                 <label for="color">Color:</label>
                 <select name="color" id="color" onChange={this.changeHandler}>
                     <option name="color" value="olive" onChange={this.changeHandler}>Olive</option>
@@ -52,13 +55,15 @@ class NewDiaper extends Component {
                     <option name="color" value="white" onChange={this.changeHandler}>White</option>
                     <option name="color" value="black" onChange={this.changeHandler}>Black</option>
                 </select>
-
+                </Form.Field>
+                <Form.Field inline width={3}>
                 <label for="image">Image:</label>
                 <input name="image" type="text" value={this.state.image} onChange={this.changeHandler} />
+                </Form.Field>
 
-
-                <input type="submit" value="Submit"/>
-            </form>
+                <Button style={{background: "rgb(207, 207, 250)", color: "white", padding: "10px 10px 0px -10px"}} type="submit" value="Submit">Enter</Button>
+                </Form.Group>
+            </Form>
             <br/>
             </div>
         )

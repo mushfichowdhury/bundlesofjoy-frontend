@@ -3,13 +3,15 @@ import { connect } from 'react-redux'
 import { getEntries, getChildren } from '../../redux/actions'
 import ChildJournalEntries from './ChildJournalEntries'
 import ChildInfo from '../Child/ChildInfo'
+import { Card, Input } from 'semantic-ui-react';
 
 
 class ChildHome extends React.Component {
     state = {
         user: "",
         entries: [],
-        children: []
+        children: [],
+        searchValue: ""
     }
 
     componentDidMount() {
@@ -26,23 +28,43 @@ class ChildHome extends React.Component {
         return entries.reverse().map((entryObj) => <ChildJournalEntries key={entryObj.id} entry={entryObj} />)
     }
 
-    renderChildren = () => {
-        return this.state.children.filter((child) => { return child.user_id === this.props.user.user.id }).map((child)=> <ChildInfo key={child.id} child={child} />)
+    // handleSearchFilterRender = (allEntries, searchText) => {
+    //     if (searchText === ""){
+    //         return allEntries
+    //     } else {
+    //         let searchArray = searchText.split(",").map(e=> e.trim()).filter( e => e !=="")
+    //         console.log("searchArray", searchArray)
+    //         return allEntries.filter(entry => { 
+    //             searchArray.findAll( term => `${entry.title}`.includes(term))
+    //         })
+    //     }
+    // }
+    
+    // mainEntriesRender = () => {
+    //     let allEntries = this.renderEntries()
+    //     let searchText = this.state.searchValue
+    //     let renderList = this.handleSearchFilterRender(allEntries, searchText)
+    //     return renderList.map((entry) => <ChildJournalEntries key={entry.id} entry={entry}/>)
+    // }
+    
+    searchHandler = (e) => {
+        const search = e.target.value 
+        this.setState({ searchValue: search })
     }
 
-
     render() {
-        console.log("render", this.props.user)
+        console.log("childhome", this.state.searchValue)
     return (
         <div>
             <div className="App">
-                {/* <h1>{this.props.child[0].name}</h1> */}
+                <h1>'s Memories</h1>
             </div>
+            <Input value={this.state.searchValue} onChange={this.searchHandler}/>
             <br/><br/>
             <div className="App">
-                <div className="Journal-Entries" >
+                <Card.Group itemsPerRow={4} >
                     {this.renderEntries()}
-                </div>
+                </Card.Group>
             </div>
         </div>
     )

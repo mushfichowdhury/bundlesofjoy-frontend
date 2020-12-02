@@ -3,6 +3,8 @@ import { Component } from 'react'
 import { Redirect } from 'react-router-dom';
 import logo from '../../Bundles of Joy.png'
 import './Login.css'
+import { Button, Icon } from 'semantic-ui-react'
+
 
 class ChildLogIn extends Component {
 
@@ -26,9 +28,22 @@ class ChildLogIn extends Component {
                     <input placeholder="Enter Name" type="text" label="username"/>
                     <div className="divider"/>
                     <input placeholder="Enter Password" type="password" label="password" ></input>
-                    <button type="submit" onSubmit={this.submitHandler}>Log in</button>
+                    <div className="divider"/><div className="divider"/>
+                    <Button.Group vertical>
+                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' type="submit" onClick={this.submitHandler}>
+                        <Button.Content visible>Log In</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='arrow right' />
+                        </Button.Content>
+                    </Button>
+                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' onClick={this.childLogin}>
+                        <Button.Content visible>Parent Log In</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='arrow right' />
+                        </Button.Content>
+                    </Button>
+                    </Button.Group >
                 </form>
-                <button onClick={this.childLogin}>Parent Log In</button>
                 </div>
             </div>
         )

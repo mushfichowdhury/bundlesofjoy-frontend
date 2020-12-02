@@ -5,6 +5,8 @@ import { userLoginAction } from '../../redux/actions';
 import { withRouter, Redirect } from 'react-router-dom';
 import logo from '../../Bundles of Joy.png'
 import './Login.css'
+import { Button, Icon } from 'semantic-ui-react'
+
 
 class Login extends Component {
 
@@ -45,9 +47,22 @@ class Login extends Component {
                     <input onChange={this.changeHandler} value={this.state.username} name="username" placeholder="Enter Username" type="text" label="username"/>
                     <div className="divider"/>
                     <input onChange={this.changeHandler} value={this.state.password} name="password" placeholder="Enter Password" type="password" label="password" ></input>
-                    <button type="submit" onClick={this.submitHandler}>Log in</button>
+                    <div className="divider"/><div className="divider"/>
+                    <Button.Group vertical>
+                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' type="submit" onClick={this.submitHandler}>
+                        <Button.Content visible>Log In</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='arrow right' />
+                        </Button.Content>
+                    </Button>
+                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' onClick={this.childLogin}>
+                        <Button.Content visible>Child Log In</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='arrow right' />
+                        </Button.Content>
+                    </Button>
+                    </Button.Group>
                 </form>
-                <button onClick={this.childLogin}>Child Log In</button>
                 </div>
             </div>
         )

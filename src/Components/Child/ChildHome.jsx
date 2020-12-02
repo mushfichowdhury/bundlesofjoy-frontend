@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { getEntries, getChildren } from '../../redux/actions'
-import JournalEntries from '../Entries/JournalEntries'
+import ChildJournalEntries from './ChildJournalEntries'
 import ChildInfo from '../Child/ChildInfo'
 
 
@@ -13,12 +13,8 @@ class ChildHome extends React.Component {
     }
 
     componentDidMount() {
-        if(this.props.user === null){
-            this.props.routerProps.history.push("/login")
-        }
         this.props.getEntries()
         this.props.getChildren()
-        
     }
 
     getEntries = () => {
@@ -27,23 +23,7 @@ class ChildHome extends React.Component {
 
     renderEntries = () => {
         const entries = this.props.entries 
-        return entries.reverse().map((entryObj) => <JournalEntries key={entryObj.id} entry={entryObj} removeEntry={this.removeEntry} />)
-    }
-
-    addEntry = (newEntry) => {
-        let updatedEntries = [...this.state.entries, newEntry]
-        this.setState({
-            entries: [updatedEntries]
-        })
-    }
-
-    removeEntry = (entryObj) => {
-        let updatedEntries = this.state.entries.filter((obj) => {
-            return obj.id !== entryObj.id
-        })
-        this.setState({
-            entries: [updatedEntries]
-        })
+        return entries.reverse().map((entryObj) => <ChildJournalEntries key={entryObj.id} entry={entryObj} />)
     }
 
     renderChildren = () => {
@@ -56,10 +36,10 @@ class ChildHome extends React.Component {
     return (
         <div>
             <div className="App">
-                <h1>Home</h1>
+                {/* <h1>{this.props.child[0].name}</h1> */}
             </div>
             <br/><br/>
-            <div className="grid-container">
+            <div className="App">
                 <div className="Journal-Entries" >
                     {this.renderEntries()}
                 </div>

@@ -46,9 +46,9 @@
     display: flex;
 } */
 
-.login-form > form > button {
+/* .login-form > form > button {
     display: none;
-}
+} */
 
 .login-form > button:hover {
     width: 100px;

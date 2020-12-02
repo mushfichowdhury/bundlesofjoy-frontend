@@ -41,6 +41,7 @@ componentDidMount = () => {
 }
 
 render() {
+	console.log(this.props.user)
 return (
 	<div className="App">
 	{(this.props.user === null) ? null : <Navbar/> }
@@ -72,7 +73,11 @@ function mdp(dispatch) {
 	}
 }
 
-export default connect(null, mdp)(App)
+function msp(state) {
+    return state
+}
+
+export default connect(msp, mdp)(App)
 
 
 

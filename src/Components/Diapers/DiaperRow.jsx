@@ -9,8 +9,20 @@ import orangepoop from '../images/orangepoop.png'
 import redpoop from '../images/redpoop.png'
 import whitepoop from '../images/whitepoop.png'
 import yellowpoop from '../images/yellowpoop.png'
+import Modal from 'react-modal';
+
 
 const DiaperRow = (props) => {
+    const [modalIsOpen,setIsOpen] = React.useState(false);
+    
+    function openModal() {
+        setIsOpen(true);
+    }
+    
+    function closeModal(){
+        setIsOpen(false);
+    }
+
     const deleteHandler = () => {
         console.log("deleting diaper", props.change.id)
         props.reduxDeleteHandler(props.change.id)
@@ -41,7 +53,26 @@ const DiaperRow = (props) => {
                 props.change.color === "dark yellow" ? <div><img src={darkyellowpoop} alt=""/></div>: 
                 <b>{props.change.color}</b>
                 }
-                <button>Show Photo</button>
+                <button onClick={openModal}>Show Photo</button>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    contentLabel="Example Modal"
+                    style={{
+                        overlay: {
+                            backgroundColor: 'lavender'
+                        },
+                        content: {
+                            color: 'lightsteelblue',
+                            justifyContent: 'center',
+                            display: 'block',
+                            margin: 'auto',
+                            width: '50'
+                    }}}
+                >
+                    <img src={props.change.image} />
+                    <button onClick={closeModal}>Close Modal</button>
+                </Modal>
             </td>
             <td>
                 <button onClick={deleteHandler}>Delete</button>

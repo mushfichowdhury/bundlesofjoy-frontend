@@ -20,7 +20,7 @@ class NewJournalEntry extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.handleSubmit(this.state)
+        this.props.reduxHandleSubmit(this.state)
         // this.resetForm(e)
         this.setState=({
             user_id: 1,
@@ -30,15 +30,6 @@ class NewJournalEntry extends React.Component {
         })
 
     }
-
-    // resetForm = (e) => {
-    //   console.log("reset???")
-    //   this.setState=({
-    //     title: "",
-    //     content: "",
-    //     author: ""
-    //   })
-    // }
     
     render() {
         return (
@@ -56,7 +47,7 @@ class NewJournalEntry extends React.Component {
 
 function mdp(dispatch){
     return { 
-        handleSubmit: (newEntryObj) => dispatch(newEntry(newEntryObj))
+        reduxHandleSubmit: (newEntryObj) => dispatch(newEntry(newEntryObj))
     }
 }
 

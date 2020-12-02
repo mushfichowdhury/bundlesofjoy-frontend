@@ -8,6 +8,7 @@ import './Homepage.css'
 import LastDiaper from './LastDiaper';
 import LastFeeding from './LastFeeding';
 import LastNap from './LastNap';
+import { Item } from 'semantic-ui-react';
 
 
 class Homepage extends React.Component {
@@ -79,16 +80,16 @@ class Homepage extends React.Component {
                 <div>
                     <div className="Last-Logs">
                     <div className="Log-Diaper-Change" >
-                        <LastDiaper diapers={this.props.diapers}/>
+                        <LastDiaper diapers={this.props.diapers} feedings={this.props.feedings} naps={this.props.naps}/>
                     </div>
-                    <div className="divider"></div>
+                    {/* <div className="divider"></div>
                     <div className="Log-Feeding" >
                         <LastFeeding feedings={this.props.feedings}/>
                     </div>
                     <div className="divider"></div>
                     <div className="Log-Nap" >
                         <LastNap naps={this.props.naps}/>
-                    </div>
+                    </div> */}
                     </div>
                 </div>
                 : null
@@ -97,7 +98,9 @@ class Homepage extends React.Component {
                 
                 <div className="Journal-Entries" >
                     <NewJournalEntry addEntry={this.addEntry} /> 
-                    {this.renderEntries()}
+                    <Item.Group divided>
+                        {this.renderEntries()}
+                    </Item.Group>
                 </div>
             </div>
         </div>

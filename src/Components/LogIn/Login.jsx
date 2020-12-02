@@ -55,6 +55,12 @@ class Login extends Component {
                             <Icon name='arrow right' />
                         </Button.Content>
                     </Button>
+                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' >
+                        <Button.Content visible>New Parent</Button.Content>
+                        <Button.Content hidden>
+                            <Icon name='arrow right' />
+                        </Button.Content>
+                    </Button>
                     <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' onClick={this.childLogin}>
                         <Button.Content visible>Child Log In</Button.Content>
                         <Button.Content hidden>

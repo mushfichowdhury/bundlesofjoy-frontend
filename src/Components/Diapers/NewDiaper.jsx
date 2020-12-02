@@ -30,7 +30,6 @@ class NewDiaper extends Component {
     render() {
         return (
             <div>
-            <h3>Log Diaper Change</h3>
             <Form onSubmit={this.localSubmitHandler} >
                 <Form.Group inline widths='equal' style={{padding: "0px 300px 0px 300px"}}>
                 <Form.Field inline width={3}>

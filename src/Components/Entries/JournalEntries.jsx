@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
-import { Button } from "semantic-ui-react";
+import { Button, Item } from "semantic-ui-react";
 import { deleteEntry } from '../../redux/actions'
 import './JournalEntries.css'
 
@@ -13,25 +13,19 @@ class JournalEntries extends React.Component {
 
     render() {
         return (
-        <div className="grid-container-entry">
-            <div className="post-image">
-                <img src={this.props.entry.image} />
-            </div>
-            <div className="post-content">
-                <div className="post-date">
-                    {/* <h3 style={{justifyContent: "left"}}>{this.props.entry.title}</h3> */}
-                    <h4>{ new Date(Date.parse(this.props.entry.created_at)).toDateString() }</h4>
-                </div>
-
-                <div className="post-button">
-                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.deleteHandler}> Delete </Button>
-                </div>
-
-                <div className="post-text" >
-                    <p>{this.props.entry.content}</p>
-                </div>
-            </div>
-        </div>
+        <Item style={{textAlign: "left"}}>
+            <Item.Image src={this.props.entry.image} />
+                <Item.Content>
+                    <Item.Header>{this.props.entry.title}</Item.Header>
+                    <Item.Meta>
+                        <span>{new Date(Date.parse(this.props.entry.created_at)).toDateString()}</span>
+                    </Item.Meta>
+                    <Item.Description>{this.props.entry.content}</Item.Description>
+                    <Item.Extra>
+                        <Button floated="right" style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.deleteHandler}> Delete </Button>
+                    </Item.Extra>
+                </Item.Content>
+        </Item>
         );
     }
 }

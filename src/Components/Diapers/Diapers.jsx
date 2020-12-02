@@ -3,7 +3,7 @@ import DiaperRow from "./DiaperRow"
 import NewDiaper from './NewDiaper'
 import { connect } from 'react-redux'
 import { getDiapers } from '../../redux/actions'
-import { Table } from 'semantic-ui-react'
+import { Header, Statistic, Table } from 'semantic-ui-react'
 
 
 class Diapers extends Component {
@@ -40,8 +40,11 @@ class Diapers extends Component {
         console.log("# of Diapers:", this.props.diapers.length)
         return (
             <div>
-                <h1>All Diaper Changes</h1>
-                <h2>Number of Diapers Left: {this.state.counter - this.props.diapers.length}</h2>
+                <Header as="h1">All Diaper Changes</Header>
+                <Statistic>
+                    <Statistic.Value>{this.state.counter - this.props.diapers.length}</Statistic.Value>
+                    <Statistic.Label>Number of Diapers Left</Statistic.Label>
+                </Statistic>
                 <NewDiaper submitHandler={this.submitHandler}/>
                 <Table striped className="diaperTable">
                     <Table.Header style={{textAlign: "center"}}>

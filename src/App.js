@@ -15,6 +15,7 @@ import ChildLogIn from './Components/LogIn/ChildLogIn';
 import { sessionUserAction } from './redux/actions'
 import { connect } from 'react-redux'
 import { getDiapers, getFeedings, getNaps, getEntries } from './redux/actions'
+import Timer from './Components/Timer';
 
 
 
@@ -56,6 +57,8 @@ return (
 			<Route path="/feedings" render={ routerProps => <Feedings routerProps={routerProps} /> } />
 			<Route path="/naps" render={ routerProps => <Naps routerProps={routerProps} /> } />
 			<Route path="/children" render={ routerProps => <Child routerProps={routerProps} /> } />
+			<Route path="/timer" render={ routerProps => <Timer routerProps={routerProps} /> } />
+
 		</div>
 		</Switch>
 	</div>

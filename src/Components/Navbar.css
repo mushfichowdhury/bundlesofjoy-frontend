@@ -17,11 +17,3 @@
     border-radius: 50px;
 
 }
-
-.nav-button:hover {
-    background-color: white;
-    border-color: lavender;
-    border-width: 2px;
-    color: rgb(181, 181, 241);
-
-}

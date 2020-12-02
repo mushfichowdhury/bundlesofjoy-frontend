@@ -15,27 +15,16 @@
 
 .Last-Logs {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 50px 0px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
     grid-template-areas:
-    "Log-Diaper-Change Log-Diaper-Change Log-Diaper-Change"
-    "Log-Feeding Log-Feeding Log-Feeding"
-    "Log-Nap Log-Nap Log-Nap";
+    "Log-Diaper-Change";
     grid-area: Last-Logs;
 }
 
 .Log-Diaper-Change { 
     grid-area: Log-Diaper-Change;
-    outline-width: 0;
-    border: none;
-    padding: 5px 20px;
-    margin: 0 15px;
-    background-color: #eff2f5; 
-    height: 50%;
-    border-radius: 15px;
-    box-shadow: 7px 7px 17px -7px rgba(0, 0, 0, 0.75);
-    height: 260px;
 }
 
 .Log-Feeding { 

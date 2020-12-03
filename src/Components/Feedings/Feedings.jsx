@@ -32,7 +32,7 @@ class Feedings extends Component {
                     <Statistic.Label>Feedings Today</Statistic.Label>
                 </Statistic>
                 <NewFeeding />
-                    <Table className="diaperTable" style={{width: "75%", margin: "auto"}} >
+                    <Table striped className="diaperTable" style={{width: "75%", margin: "auto"}} >
                         <Table.Header style={{textAlign: "center"}}>
                             <Table.Row>
                                 <Table.HeaderCell >

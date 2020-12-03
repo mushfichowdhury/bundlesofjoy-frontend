@@ -50,7 +50,7 @@ class Login extends Component {
                 <div class="balloon"><h1>E</h1></div>
                 <div class="balloon"><h1>S</h1></div>
 
-                <h1>Parent Log In</h1>
+                <h1 className="floating">Parent</h1>
                 <Form>
                     <Form.Input onChange={this.changeHandler} value={this.state.username} name="username" placeholder="Enter Username" type="text" />
                     <div className="divider"/>

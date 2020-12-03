@@ -3,13 +3,13 @@
     margin-bottom: 30px;
     padding: 30px;
     flex-direction: column;
-    border-radius: 15px;
-    box-shadow: 7px 7px 17px -7px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    box-shadow: 7px 7px 12px -5px rgba(0, 0, 0, 0.75);
     width: 100%;
     border: black;
 }
 
-.new-journal-entry > form > input {
+/* .new-journal-entry > form > input {
     outline-width: 0;
     border: none;
     padding: 5px 20px;
@@ -17,18 +17,18 @@
     border-radius: 999px;
     background-color: #eff2f5;
     height: 35px;
-}
+} */
 
-#content {
+/* #content {
     width: 80%;
     height: 35px
-}
-
+} */
+/* 
 .new-journal-entry > form {
     flex: 1;
     display: flex;
     margin-bottom: 10px;
-}
+} */
 
 .new-journal-entry > form > button {
     height: 35px;

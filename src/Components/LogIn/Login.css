@@ -1,8 +1,9 @@
 .login {
     display: grid;
     place-items: center;
-    height: 50vh;
+    height: 100vh;
     flex-direction: column;
+    background: lavender;
 
 }
 
@@ -28,35 +29,93 @@
 .divider{
     width: auto;
     height:15px;
-    /* display:inline-block; */
 }
 
-/* .login > div > img {
-    object-fit: contain;
-    height: 350px;
-} */
+body { 
+    margin:20px; 
+    background-color:hsl(310, 65%, 38%); 
+    text-align:center; 
+}
 
-/* .login-form > form > button {
-    width: 125px;
-    height: 22px;
-    background-color: lavender;
-    border: 0;
-    color: black;
-    font-weight: 600;
-    display: flex;
-} */
+.balloon {
+    display:inline-block;
+    width:120px;
+    height:145px;
+    background: #F8CBD1;
+    border-radius:80%;
+    position:relative;
+    box-shadow:inset -10px -10px 0 rgba(0,0,0,0.07);
+    margin:20px 30px;
+    transition:transform 0.5s ease;
+    z-index:10;
+    animation:balloons 4s ease-in-out infinite;
+    transform-origin:bottom center;
+}
 
-/* .login-form > form > button {
-    display: none;
-} */
+.balloon > h1 {
+    /* display:inline-block; */
+    /* width:120px; */
+    /* height:145px; */
+    /* background:hsl(215,50%,65%); */
+    /* border-radius:80%; */
+    /* position:relative; */
+    /* box-shadow:inset -10px -10px 0 rgba(0,0,0,0.07); */
+    /* margin:20px 30px; */
+    /* transition:transform 0.5s ease; */
+    /* z-index:10; */
+    /* animation:balloons 4s ease-in-out infinite; */
+    /* transform-origin:bottom center; */
+    color: white;
+    padding-top: 50px;
+}
 
-/* .login-form > button:hover {
-    width: 100px;
-    height: 50px;
-    background-color: white;
-    border-color: lavender;
-    border-width: 2px;
-    color: rgb(181, 181, 241); */
+@keyframes balloons {
+  0%,100%{ transform:translateY(0) rotate(-4deg); }
+  50%{ transform:translateY(-25px) rotate(4deg); }
+}
+
+
+.balloon:before {
+    content:"▲";
+    font-size:20px;
+    color: #F8CBD1;
+    display:block;
+    text-align:center;
+    width:100%;
+    position:absolute;
+    bottom:-12px;
+    z-index:-100;
+}
+
+.balloon:after {
+ display:inline-block; top:153px;
+  position:absolute;
+  height:250px;
+  width:1px;
+  margin:0 auto;
+  content:"";
+  background:rgba(0,0,0,0.2); 
+}
+
+.balloon:nth-child(2){ background: #D2C3D8; animation-duration:3.5s; }
+.balloon:nth-child(2):before { color:hsl(245,40%,65%);  }
+
+.balloon:nth-child(3){ background: #F7E5D7; animation-duration:3s; }
+.balloon:nth-child(3):before { color: #F7E5D7;  }
+
+.balloon:nth-child(4){ background:rgb(236, 233, 34); animation-duration:4.5s; }
+.balloon:nth-child(4):before { color:hsl(59,30%,52%);  }
+
+.balloon:nth-child(5){ background:rgb(235, 96, 10); animation-duration:5s; }
+.balloon:nth-child(5):before { color:hsl(23,44%,46%);  }
+
+.balloon:nth-child(6){ background:rgb(158, 10, 226); animation-duration:5s; }
+.balloon:nth-child(6):before { color:hsl(23,44%,46%);  }
+
+.balloon:nth-child(7){ background:hsl(23,55%,57%); animation-duration:5s; }
+.balloon:nth-child(7):before { color:hsl(23,44%,46%);  }
+
+
 
 
 

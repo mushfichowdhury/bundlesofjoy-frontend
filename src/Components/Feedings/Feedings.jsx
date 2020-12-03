@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Table } from 'semantic-ui-react'
+import { Table, Statistic } from 'semantic-ui-react'
 import { getFeedings } from '../../redux/actions'
 import FeedingRow from "./FeedingRow"
 import NewFeeding from './NewFeeding'
@@ -27,9 +27,12 @@ class Feedings extends Component {
     render() {
         return (
             <div>
-                <h1>All Feedings</h1>
+                <Statistic style={{marginTop: "1%"}}>
+                    <Statistic.Value>{this.props.feedings.filter(feeding => new Date(Date.parse(feeding.created_at)).toDateString() === new Date(Date.parse(this.props.feedings[this.props.feedings.length-1].created_at)).toDateString()).length}</Statistic.Value>
+                    <Statistic.Label>Feedings Today</Statistic.Label>
+                </Statistic>
                 <NewFeeding />
-                    <Table className="feedingTable" >
+                    <Table className="diaperTable" style={{width: "75%", margin: "auto"}} >
                         <Table.Header style={{textAlign: "center"}}>
                             <Table.Row>
                                 <Table.HeaderCell >
@@ -49,7 +52,7 @@ class Feedings extends Component {
                                 </Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
-                        <Table.Body>{this.renderFeedings()}</Table.Body>
+                        <Table.Body onScroll >{this.renderFeedings()}</Table.Body>
                     </Table>
             </div>
         )

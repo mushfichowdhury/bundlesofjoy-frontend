@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Input, TextArea } from "semantic-ui-react";
 import { newEntry } from '../../redux/actions'
 import "./NewJournalEntry.css"
 
@@ -35,18 +35,13 @@ class NewJournalEntry extends React.Component {
     render() {
         return (
             <div className="new-journal-entry">
-                <Form onSubmit={this.handleSubmit}>
-                <Form.Group widths='equal'>
-                    <Form.Field>
-                    <Form.Input name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange}/>
-                    </Form.Field>
-                    
-                    <Form.Field>
-                    <Form.Input name="image" placeholder="Photo" value={this.state.image} onChange={this.handleChange}/>
-                    </Form.Field>
+                <Form onSubmit={this.handleSubmit} >
+                    <Form.Group widths='equal'>
+                        <Form.Field control={Input} name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange}/>
+                        
+                        <Form.Field control={Input} name="image" placeholder="Photo" value={this.state.image} onChange={this.handleChange}/>
                     </Form.Group>
-
-                    <Form.TextArea name="content" placeholder="Write Journal Entry" id="content" value={this.state.content} onChange={this.handleChange}/>
+                    <Form.Field style={{ height: '10em'}} control={TextArea} name="content" placeholder="Write Journal Entry" id="content" value={this.state.content} onChange={this.handleChange}/>
                     <Button style={{background: "rgb(207, 207, 250)", color: "white"}} type="submit">Post</Button>
                 </Form>
             </div>

@@ -3,7 +3,7 @@ import { Component } from 'react'
 import { Redirect } from 'react-router-dom';
 import logo from '../../Bundles of Joy.png'
 import './Login.css'
-import { Button, Icon } from 'semantic-ui-react'
+import { Button, Form, Icon } from 'semantic-ui-react'
 
 
 class ChildLogIn extends Component {
@@ -24,12 +24,12 @@ class ChildLogIn extends Component {
                 <div className="login-form">
                 <img src={logo} alt="logo" />
                 <h1>Child Log In</h1>
-                <form>
-                    <input placeholder="Enter Name" type="text" label="username"/>
+                <Form>
+                    <Form.Input placeholder="Enter Name" type="text" />
                     <div className="divider"/>
-                    <input placeholder="Enter Password" type="password" label="password" ></input>
-                    <div className="divider"/><div className="divider"/>
-                    <Button.Group vertical>
+                    <Form.Input placeholder="Enter Password" type="password" />
+                    <div className="divider"/>
+                    <Button.Group horizontal>
                     <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' type="submit" onClick={this.submitHandler}>
                         <Button.Content visible>Log In</Button.Content>
                         <Button.Content hidden>
@@ -37,13 +37,13 @@ class ChildLogIn extends Component {
                         </Button.Content>
                     </Button>
                     <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' onClick={this.childLogin}>
-                        <Button.Content visible>Parent Log In</Button.Content>
+                        <Button.Content visible>Back</Button.Content>
                         <Button.Content hidden>
-                            <Icon name='arrow right' />
+                            <Icon name='arrow left' />
                         </Button.Content>
                     </Button>
                     </Button.Group >
-                </form>
+                </Form>
                 </div>
             </div>
         )

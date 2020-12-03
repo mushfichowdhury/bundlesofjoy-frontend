@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Message } from 'semantic-ui-react'
 import { newDiaper } from '../../redux/actions'
 
 class NewDiaper extends Component {
     state = {
         texture: "soft",
         color: "olive",
-        image: ""
+        image: "",
+        visible: false
+    }
+
+    handleDismiss = () => {
+        this.setState({ visible: false })
     }
 
     changeHandler = (e) => {
@@ -24,13 +29,13 @@ class NewDiaper extends Component {
 
         }
         this.props.submitHandler(newDiaperChange)
-        this.setState({ texture: "", color: "olive", image: "" })
+        this.setState({ texture: "", color: "olive", image: "", visible: true })
     }
 
     render() {
         return (
             <div>
-            <Form onSubmit={this.localSubmitHandler} >
+            <Form success onSubmit={this.localSubmitHandler} >
                 <Form.Group inline widths='equal' style={{padding: "0px 300px 0px 300px"}}>
                 <Form.Field inline width={3}>
                 <label for="texture">Texture:</label>
@@ -59,9 +64,19 @@ class NewDiaper extends Component {
                 <label for="image">Image:</label>
                 <input name="image" type="text" value={this.state.image} onChange={this.changeHandler} />
                 </Form.Field>
-
+                
                 <Button style={{background: "rgb(207, 207, 250)", color: "white", padding: "10px 10px 0px -10px"}} type="submit" value="Submit">Enter</Button>
                 </Form.Group>
+                {this.state.visible ? <Message
+                    success
+                    floating
+                    onDismiss={this.handleDismiss}
+                    size="tiny"
+                    compact
+                    
+                    header='Success!'
+                    content="Logged a diaper change"
+                /> : null }
             </Form>
             <br/>
             </div>

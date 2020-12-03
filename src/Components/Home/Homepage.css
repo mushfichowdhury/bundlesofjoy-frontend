@@ -1,22 +1,22 @@
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-        "Last-Logs Journal-Entries Journal-Entries"
-        "Last-Logs Journal-Entries Journal-Entries"
-        ". Journal-Entries Journal-Entries";
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Last-Logs Journal-Entries";
     padding-right: 8%;
     padding-left: 8%;
     }
     
-.Journal-Entries { grid-area: Journal-Entries; }
+.Journal-Entries { 
+    grid-area: Journal-Entries; 
+}
 
 .Last-Logs {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 0fr;
+    grid-template-rows: 0fr;
     gap: 0px 0px;
     grid-template-areas:
     "Log-Diaper-Change";

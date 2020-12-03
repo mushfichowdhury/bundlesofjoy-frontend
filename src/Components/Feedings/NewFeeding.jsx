@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Message } from 'semantic-ui-react'
 import { newFeeding } from '../../redux/actions'
 
 
@@ -9,7 +9,12 @@ class NewFeeding extends Component {
     state = {
         feeding_method: "n/a",
         amount: "",
-        food: ""
+        food: "",
+        visible: false,
+    }
+
+    handleDismiss = () => {
+        this.setState({ visible: false })
     }
 
     changeHandler = (e) => {
@@ -25,14 +30,13 @@ class NewFeeding extends Component {
             food: this.state.food
         }
         this.props.submitHandler(newFeeding)
-        this.setState({ feeding_method: "n/a", amount: "", food: "" })
+        this.setState({ feeding_method: "n/a", amount: "", food: "", visible: true })
 
     }
 
     render() {
         return (
             <div>
-            <h3>Log Feeding</h3>
             <Form onSubmit={this.localSubmitHandler} >
             <Form.Group inline widths='equal' style={{padding: "0px 325px 0px 325px"}}>
                 <Form.Field inline width={8}>
@@ -53,6 +57,15 @@ class NewFeeding extends Component {
                 </Form.Field>
                 <Button style={{background: "rgb(207, 207, 250)", color: "white"}} type="submit" value="Submit">Submit</Button>
                 </Form.Group>
+                {this.state.visible ? <Message
+                    success
+                    floating
+                    onDismiss={this.handleDismiss}
+                    size="tiny"
+                    compact
+                    header='Success!'
+                    content="You logged a feeding."
+                    /> : null }
             </Form>
             <br/>
             </div>

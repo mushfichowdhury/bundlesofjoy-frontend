@@ -39,9 +39,8 @@ class NewNap extends Component {
     render() {
         return (
             <div>
-            <h3>Log Nap</h3>
-            <Timer timerHandler={this.timerHandler} />
-            <Form inline onSubmit={this.localSubmitHandler} style={{alignItems: "center"}}>
+            <Timer timerHandler={this.timerHandler} style={{display: "box"}} />
+            <Form inline onSubmit={this.localSubmitHandler} style={{display: "flex", margin: "auto", marginTop: "1%", justifyContent: "center", width: "40%"}}>
                 <Form.Group>
                 <Form.Field inline>
                 <label for="duration">Duration:</label>

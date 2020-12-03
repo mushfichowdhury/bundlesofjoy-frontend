@@ -28,125 +28,18 @@
   color: #61dafb;
 }
 
-/* table {
-  margin: auto;
-  width: 80%;
-  padding: 10px;
-  border-collapse: separate;
-  border-spacing: 0 5px;
+.diaperTable > tbody {
+    display: inline-block;
+    height: 70vh;
+    overflow: auto;
+
 }
 
-th {
-  background-color: tomato;
-  color: white;
+.diaperTable > thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
-
-th,
-td {
-  width: 300px;
-  text-align: center;
-  border: 0.5px solid #0000001e;
-  padding: 5px;
-} */
-/*
-table.diaperTable {
-  margin: auto;
-  width: 80%;
-  text-align: center;
-  border-collapse: collapse;
-  overflow-y:scroll;
-  height:500px;
-  display:block;
-}
-table.diaperTable td, table.diaperTable th {
-  padding: 15px;
-}
-table.diaperTable tbody td {
-  font-size: 13px;
-}
-table.diaperTable tr:nth-child(even) {
-  background: #EDEDED;
-}
-table.diaperTable thead {
-  background: lavender;
-  background: -moz-linear-gradient(top, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
-  background: -webkit-linear-gradient(top, rgb(217, 217, 248) 0%,rgb(206, 206, 252) 66%,rgb(206, 206, 252) 100%);
-  background: linear-gradient(to bottom, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
-}
-table.diaperTable thead th {
-  font-size: 15px;
-  font-weight: bold;
-  color: #FFFFFF;
-  text-align: center;
-}
-
-table.diaperTable tbody td img {
-  width: 40px;
-  height: 100%;
-  padding-left: 2px;
-}
-
-table.diaperTable tbody td img:hover {
-  opacity: 0;
-}
-
-
-table.feedingTable {
-  margin: auto;
-  width: 80%;
-  text-align: center;
-  border-collapse: collapse;
-}
-table.feedingTable td, table.feedingTable th {
-  padding: 15px;
-}
-table.feedingTable tbody td {
-  font-size: 13px;
-}
-table.feedingTable tr:nth-child(even) {
-  background: #EDEDED;
-}
-table.feedingTable thead {
-  background: lavender;
-  background: -moz-linear-gradient(top, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
-  background: -webkit-linear-gradient(top, rgb(217, 217, 248) 0%,rgb(206, 206, 252) 66%,rgb(206, 206, 252) 100%);
-  background: linear-gradient(to bottom, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
-}
-table.feedingTable thead th {
-  font-size: 15px;
-  font-weight: bold;
-  color: #FFFFFF;
-  text-align: center;
-}
-
-table.napTable {
-  margin: auto;
-  width: 80%;
-  text-align: center;
-  border-collapse: collapse;
-  
-}
-table.napTable td, table.napTable th {
-  padding: 15px;
-}
-table.napTable tbody td {
-  font-size: 13px;
-}
-table.napTable tr:nth-child(even) {
-  background: #EDEDED;
-}
-table.napTable thead {
-  background: lavender;
-  background: -moz-linear-gradient(top, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
-  background: -webkit-linear-gradient(top, rgb(217, 217, 248) 0%,rgb(206, 206, 252) 66%,rgb(206, 206, 252) 100%);
-  background: linear-gradient(to bottom, rgb(217, 217, 248) 0%, rgb(206, 206, 252) 66%, rgb(206, 206, 252) 100%);
-}
-table.napTable thead th {
-  font-size: 15px;
-  font-weight: bold;
-  color: #FFFFFF;
-  text-align: center;
-}*/
 
 @keyframes floating {
   0% {

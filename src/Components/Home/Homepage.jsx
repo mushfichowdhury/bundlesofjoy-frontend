@@ -8,7 +8,7 @@ import './Homepage.css'
 import LastDiaper from './LastDiaper';
 import LastFeeding from './LastFeeding';
 import LastNap from './LastNap';
-import { Item } from 'semantic-ui-react';
+import { Item, Statistic } from 'semantic-ui-react';
 
 
 class Homepage extends React.Component {
@@ -67,10 +67,22 @@ class Homepage extends React.Component {
         console.log("Logged In As:", this.props.user)
     return (
         <div>
-            <div className="App">
-                <h1>Home</h1>
+            <div className="App" style={{marginTop: "1%"}}>
+                <h1>Welcome, {this.props.user.user.username}!</h1>
             </div>
-            <br/><br/>
+            <br/>
+            <Statistic >
+                    <Statistic.Value className="floating">{this.props.feedings.filter(feeding => new Date(Date.parse(feeding.created_at)).toDateString() === new Date(Date.parse(this.props.feedings[this.props.feedings.length-1].created_at)).toDateString()).length}</Statistic.Value>
+                    <Statistic.Label>Feedings Today</Statistic.Label>
+            </Statistic>
+            <Statistic>
+                    <Statistic.Value className="floating">{this.props.diapers.filter(diaper => new Date(Date.parse(diaper.created_at)).toDateString() === new Date(Date.parse(this.props.diapers[this.props.diapers.length-1].created_at)).toDateString()).length}</Statistic.Value>
+                    <Statistic.Label>Diaper Changes Today</Statistic.Label>
+            </Statistic>
+            <Statistic style={{marginTop: "1%"}}>
+                    <Statistic.Value className="floating">{this.props.naps.filter(nap => new Date(Date.parse(nap.created_at)).toDateString() === new Date(Date.parse(this.props.naps[this.props.naps.length-1].created_at)).toDateString()).length}</Statistic.Value>
+                    <Statistic.Label>Naps Today</Statistic.Label>
+            </Statistic>
             <div className="grid-container">
                 {/* {this.props.diapers.length && this.props.feedings.length > 0 ?
                 this.renderChildren() : <p>loading...</p>
@@ -80,7 +92,7 @@ class Homepage extends React.Component {
                 <div>
                     <div className="Last-Logs">
                     <div className="Log-Diaper-Change" >
-                        <LastDiaper diapers={this.props.diapers} feedings={this.props.feedings} naps={this.props.naps}/>
+                        <LastDiaper diapers={this.props.diapers} feedings={this.props.feedings} naps={this.props.naps} style={{marginLeft: "500px"}}/>
                     </div>
                     {/* <div className="divider"></div>
                     <div className="Log-Feeding" >

@@ -4,7 +4,7 @@ import { getNaps } from '../../redux/actions'
 import NapRow from "./NapRow"
 import NewNap from './NewNap'
 import HomepageNaps from '../Graphs/HomepageNaps'
-import { Table } from 'semantic-ui-react';
+import { Table, Statistic } from 'semantic-ui-react';
 
 
 class Naps extends React.Component {
@@ -24,11 +24,13 @@ class Naps extends React.Component {
     }
     render(){
         return (
-            <div >
-                <h1>All Naps</h1>
-                {/* <HomepageNaps/> */}
+            <div>
+                <Statistic style={{marginTop: "1%"}}>
+                    <Statistic.Value>{this.props.naps.filter(nap => new Date(Date.parse(nap.created_at)).toDateString() === new Date(Date.parse(this.props.naps[this.props.naps.length-1].created_at)).toDateString()).length}</Statistic.Value>
+                    <Statistic.Label>Naps Today</Statistic.Label>
+                </Statistic>
                 <NewNap submitHandler={this.submitHandler} />
-                <Table striped className="napTable" >
+                <Table striped className="diaperTable" style={{width: "75%", margin: "auto"}} >
                     <Table.Header style={{textAlign: "center"}}>
                         <Table.Row>
                             <Table.HeaderCell >
@@ -45,7 +47,7 @@ class Naps extends React.Component {
                             </Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
-                    <Table.Body>{this.renderNaps()}</Table.Body>
+                    <Table.Body onScroll>{this.renderNaps()}</Table.Body>
                 </Table>
             </div>
         )}

@@ -4,6 +4,7 @@ import NewDiaper from './NewDiaper'
 import { connect } from 'react-redux'
 import { getDiapers } from '../../redux/actions'
 import { Header, Statistic, Table } from 'semantic-ui-react'
+import HomepageDiaperChanges from '../Graphs/HomepageDiaperChanges'
 
 
 class Diapers extends Component {
@@ -40,13 +41,13 @@ class Diapers extends Component {
         console.log("# of Diapers:", this.props.diapers.length)
         return (
             <div>
-                <Header as="h1">All Diaper Changes</Header>
-                <Statistic>
+                {/* <Header as="h1">All Diaper Changes</Header> */}
+                <Statistic style={{marginTop: "1%"}}>
                     <Statistic.Value>{this.state.counter - this.props.diapers.length}</Statistic.Value>
                     <Statistic.Label>Number of Diapers Left</Statistic.Label>
                 </Statistic>
                 <NewDiaper submitHandler={this.submitHandler}/>
-                <Table striped className="diaperTable">
+                <Table striped className="diaperTable" style={{width: "75%", margin: "auto"}}>
                     <Table.Header style={{textAlign: "center"}}>
                         <Table.Row style={{textAlign: "center"}}>
                             <Table.HeaderCell >
@@ -66,8 +67,10 @@ class Diapers extends Component {
                             </Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
-                    <Table.Body>{this.renderDiaperChanges()}</Table.Body>
+                    <Table.Body onScroll>{this.renderDiaperChanges()}</Table.Body>
                 </Table>
+                <div>         
+                </div>
             </div>
         )
     }

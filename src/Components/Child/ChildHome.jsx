@@ -57,9 +57,8 @@ class ChildHome extends React.Component {
     return (
         <div>
             <div className="App">
-                <h1>'s Memories</h1>
+                <h1 style={{marginTop: "1%"}}>Bundles of Joy Memory Bank</h1>
             </div>
-            <Input value={this.state.searchValue} onChange={this.searchHandler}/>
             <br/><br/>
             <div className="App">
                 <Card.Group itemsPerRow={4} >

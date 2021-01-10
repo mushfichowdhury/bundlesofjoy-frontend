@@ -10,7 +10,7 @@ export function userLoginAction(user, dispatch) {
         },
         body: JSON.stringify( {user: user} )
         }
-        fetch('http://localhost:3000/api/v1/login', config)
+        fetch('https://bundles-of-joy.herokuapp.com/login', config)
         .then(response => response.json())
         .then(response =>{ 
         dispatch({ type: "LOGIN_USER", payload: response})
@@ -30,7 +30,7 @@ export function userSignupAction(user, dispatch) {
         },
         body: JSON.stringify( {user: user} )
         }
-        fetch('http://localhost:3000/api/v1/login', config)
+        fetch('https://bundles-of-joy.herokuapp.com/login', config)
         .then(response => response.json())
         .then(response =>{ 
         dispatch({ type: "SIGNUP_USER", payload: response})
@@ -50,7 +50,7 @@ export function sessionUserAction(user, dispatch) {
 
 export function getDiapers(){
     return function(dispatch) {
-        fetch("http://localhost:3000/api/v1/diapers")
+        fetch("https://bundles-of-joy.herokuapp.com/diapers")
 		.then(resp => resp.json())
 		.then(diapers => dispatch({
             type: "GET_DIAPERS",
@@ -60,7 +60,7 @@ export function getDiapers(){
 
 export function getFeedings() {
     return function (dispatch) {
-    fetch('http://localhost:3000/api/v1/feedings')
+    fetch('https://bundles-of-joy.herokuapp.com/feedings')
         .then(resp => resp.json())
         .then(feedings => dispatch({ type: "GET_FEEDINGS", payload: feedings }))
         .catch(console.log)
@@ -70,7 +70,7 @@ export function getFeedings() {
 
 export function getNaps() {
     return function (dispatch) {
-    fetch('http://localhost:3000/api/v1/naps')
+    fetch('https://bundles-of-joy.herokuapp.com/naps')
         .then(resp => resp.json())
         .then(naps => dispatch({ type: "GET_NAPS", payload: naps }))
         .catch(console.log)
@@ -80,7 +80,7 @@ export function getNaps() {
 
 export function getEntries() {
     return function (dispatch) {
-    fetch('http://localhost:3000/api/v1/journal_entries')
+    fetch('https://bundles-of-joy.herokuapp.com/journal_entries')
         .then(resp => resp.json())
         .then(entries => dispatch({ type: "GET_ENTRIES", payload: entries }))
         .catch(console.log)
@@ -90,7 +90,7 @@ export function getEntries() {
 
 export function getChildren() {
     return function (dispatch) {
-    fetch('http://localhost:3000/api/v1/children')
+    fetch('https://bundles-of-joy.herokuapp.com/children')
         .then(resp => resp.json())
         .then(children => dispatch({ type: "GET_CHILDREN", payload: children }))
         .catch(console.log)
@@ -100,7 +100,7 @@ export function getChildren() {
 
 export function newDiaper(newDiaper) {
     return function (dispatch) {
-    fetch('http://localhost:3000/api/v1/diapers', {
+    fetch('https://bundles-of-joy.herokuapp.com/diapers', {
         method: "POST",
         headers: {
         "content-type": "application/json",
@@ -117,7 +117,7 @@ export function newDiaper(newDiaper) {
 
 export function editDiaperChange(editedDiaperChange) {
     return function (dispatch) {
-    fetch(`http://localhost:3000/api/v1/diapers/${editedDiaperChange.id}`, {
+    fetch(`https://bundles-of-joy.herokuapp.com/diapers/${editedDiaperChange.id}`, {
         method: "PATCH",
         headers: {
         "content-type": "application/json",
@@ -134,7 +134,7 @@ export function editDiaperChange(editedDiaperChange) {
 
 export function deleteDiaperChange(diaperObj) {
     return function (dispatch) {
-    fetch(`http://localhost:3000/api/v1/diapers/${diaperObj}`, {
+    fetch(`https://bundles-of-joy.herokuapp.com/diapers/${diaperObj}`, {
         method: "DELETE",
     })
         .then(resp => resp.json())
@@ -146,7 +146,7 @@ export function deleteDiaperChange(diaperObj) {
 
 export function newFeeding(newFeeding) {
     return function (dispatch) {
-    fetch('http://localhost:3000/api/v1/feedings', {
+    fetch('https://bundles-of-joy.herokuapp.com/feedings', {
         method: "POST",
         headers: {
         "content-type": "application/json",
@@ -163,7 +163,7 @@ export function newFeeding(newFeeding) {
 
 export function editFeeding(editedFeeding) {
     return function (dispatch) {
-    fetch(`http://localhost:3000/api/v1/feedings/${editedFeeding.id}`, {
+    fetch(`https://bundles-of-joy.herokuapp.com/feedings/${editedFeeding.id}`, {
         method: "PATCH",
         headers: {
         "content-type": "application/json",
@@ -180,7 +180,7 @@ export function editFeeding(editedFeeding) {
 
 export function newNap(newNapObj) {
     return function (dispatch) {
-    fetch('http://localhost:3000/api/v1/naps', {
+    fetch('https://bundles-of-joy.herokuapp.com/naps', {
         method: "POST",
         headers: {
         "content-type": "application/json",
@@ -196,7 +196,7 @@ export function newNap(newNapObj) {
 
 export function editNap(editedNap) {
     return function (dispatch) {
-    fetch(`http://localhost:3000/api/v1/naps/${editedNap.id}`, {
+    fetch(`https://bundles-of-joy.herokuapp.com/naps/${editedNap.id}`, {
         method: "PATCH",
         headers: {
         "content-type": "application/json",
@@ -213,7 +213,7 @@ export function editNap(editedNap) {
 
 export function newEntry(newEntryObj) {
     return function (dispatch) {
-    fetch('http://localhost:3000/api/v1/journal_entries', {
+    fetch('https://bundles-of-joy.herokuapp.com/journal_entries', {
         method: "POST",
         headers: {
         "content-type": "application/json",
@@ -230,7 +230,7 @@ export function newEntry(newEntryObj) {
 
 export function editEntry(editedEntry) {
     return function (dispatch) {
-    fetch(`http://localhost:3000/api/v1/journal_entries/${editedEntry.id}`, {
+    fetch(`https://bundles-of-joy.herokuapp.com/journal_entries/${editedEntry.id}`, {
         method: "PATCH",
         headers: {
         "content-type": "application/json",
@@ -247,7 +247,7 @@ export function editEntry(editedEntry) {
 
 export function newChild(newChild) {
     return function (dispatch) {
-    fetch(`http://localhost:3000/api/v1/children`, {
+    fetch(`https://bundles-of-joy.herokuapp.com/children`, {
         method: "POST",
         headers: {
         "content-type": "application/json",
@@ -264,7 +264,7 @@ export function newChild(newChild) {
 
 export function deleteFeeding(feedingObj) {
     return function (dispatch) {
-    fetch(`http://localhost:3000/api/v1/feedings/${feedingObj}`, {
+    fetch(`https://bundles-of-joy.herokuapp.com/feedings/${feedingObj}`, {
         method: "DELETE",
     })
         .then(resp => resp.json())
@@ -276,7 +276,7 @@ export function deleteFeeding(feedingObj) {
 
 export function deleteNap(napObj) {
     return function (dispatch) {
-    fetch(`http://localhost:3000/api/v1/naps/${napObj}`, {
+    fetch(`https://bundles-of-joy.herokuapp.com/naps/${napObj}`, {
         method: "DELETE",
     })
         .then(resp => resp.json())
@@ -288,7 +288,7 @@ export function deleteNap(napObj) {
 
 export function deleteEntry(entryObj) {
     return function (dispatch) {
-    fetch(`http://localhost:3000/api/v1/journal_entries/${entryObj}`, {
+    fetch(`https://bundles-of-joy.herokuapp.com/journal_entries/${entryObj}`, {
         method: "DELETE",
     })
         .then(resp => resp.json())
@@ -300,7 +300,7 @@ export function deleteEntry(entryObj) {
 
 export function deleteChild(childObj) {
     return function (dispatch) {
-    fetch(`http://localhost:3000/api/v1/children/${childObj}`, {
+    fetch(`https://bundles-of-joy.herokuapp.com/children/${childObj}`, {
         method: "DELETE",
     })
         .then(resp => resp.json())

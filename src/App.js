@@ -29,7 +29,7 @@ componentDidMount = () => {
 	headers: { Authorization: `Bearer ${token}`}
 	}
 	if (token && userType === "user") {
-	fetch("http://localhost:3000/api/v1/users", configObj)
+	fetch("https://bundles-of-joy.herokuapp.com/users", configObj)
 	.then(response => response.json())
 	.then(response => this.props.sessionUser(response))
 	} else {

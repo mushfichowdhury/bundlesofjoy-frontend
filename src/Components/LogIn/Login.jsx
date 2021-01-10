@@ -3,7 +3,7 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { userLoginAction } from '../../redux/actions';
 import { withRouter, Redirect } from 'react-router-dom';
-import logo from '../../Bundles of Joy.png'
+// import logo from '../../Bundles of Joy.png'
 import './Login.css'
 import { Button, Form, Icon, Message } from 'semantic-ui-react'
 

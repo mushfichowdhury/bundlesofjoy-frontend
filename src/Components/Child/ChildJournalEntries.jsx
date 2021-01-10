@@ -1,9 +1,8 @@
 import React from "react";
-import { Card, Icon, Image, Modal, Button } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 import '../Entries/JournalEntries.css'
 
 const ChildJournalEntries = (props) => {
-    const [open, setOpen] = React.useState(false)
 
     const clickHandler = () => {
         console.log("clicking")

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button, Sticky, Menu, Image } from "semantic-ui-react";
+import { Sticky, Menu, Image } from "semantic-ui-react";
 import './Navbar.css'
 import logo from './images/BOJlogo.png'
 

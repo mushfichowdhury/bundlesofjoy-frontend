@@ -35,19 +35,19 @@ class Timer extends React.Component {
         this.setState({time: 0})
     }
     render() {
-        let start = (this.state.time == 0) ?
+        let start = (this.state.time === 0) ?
         <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.startTimer}>start</Button> :
         null
         let stop = (this.state.isOn) ?
         <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.stopTimer}>stop</Button> :
         null
-        let reset = (this.state.time != 0 && !this.state.isOn) ?
+        let reset = (this.state.time !== 0 && !this.state.isOn) ?
         <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.resetTimer}>reset</Button> :
         null
-        let resume = (this.state.time != 0 && !this.state.isOn) ?
+        let resume = (this.state.time !== 0 && !this.state.isOn) ?
         <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.startTimer}>resume</Button> :
         null
-        let submit = (this.state.time != 0 && !this.state.isOn) ?
+        let submit = (this.state.time !== 0 && !this.state.isOn) ?
         <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.localTimerHandler}>enter</Button> :
         null
         return(

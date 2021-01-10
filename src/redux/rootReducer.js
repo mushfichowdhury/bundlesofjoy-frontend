@@ -107,18 +107,6 @@ function childrenReducer(state = defaultState.children, action) {
         }
 };
 
-function counterReducer(state = defaultState.counter, action) {
-    switch (action.type) {
-        case "INCREMENT_COUNTER":
-            console.log("counter incrementing");
-            return ++state;
-            break;
-        default:
-            return state;
-            break;
-    }
-};
-
 const rootReducer = combineReducers({
     user: userLoginReducer,
     diapers: diapersReducer,
@@ -126,7 +114,6 @@ const rootReducer = combineReducers({
     naps: napsReducer,
     entries: entriesReducer,
     children: childrenReducer,
-    counter: counterReducer
 })
 
 export default rootReducer

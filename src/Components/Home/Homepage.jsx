@@ -6,8 +6,8 @@ import NewJournalEntry from '../Entries/NewJournalEntry'
 import ChildInfo from '../Child/ChildInfo'
 import './Homepage.css'
 import LastDiaper from './LastDiaper';
-import LastFeeding from './LastFeeding';
-import LastNap from './LastNap';
+// import LastFeeding from './LastFeeding';
+// import LastNap from './LastNap';
 import { Item, Statistic } from 'semantic-ui-react';
 
 

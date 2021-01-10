@@ -1,7 +1,7 @@
 import React from 'react'
 import { Component } from 'react'
 import { Redirect } from 'react-router-dom';
-import logo from '../../Bundles of Joy.png'
+// import logo from '../../Bundles of Joy.png'
 import './Login.css'
 import { Button, Form, Icon } from 'semantic-ui-react'
 

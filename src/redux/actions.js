@@ -10,7 +10,7 @@ export function userLoginAction(user, dispatch) {
         },
         body: JSON.stringify( {user: user} )
         }
-        fetch('https://bundles-of-joy.herokuapp.com/login', config)
+        fetch('https://bundlesofjoy.netlify.app/login', config)
         .then(response => response.json())
         .then(response =>{ 
         dispatch({ type: "LOGIN_USER", payload: response})

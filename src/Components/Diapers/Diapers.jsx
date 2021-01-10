@@ -3,8 +3,7 @@ import DiaperRow from "./DiaperRow"
 import NewDiaper from './NewDiaper'
 import { connect } from 'react-redux'
 import { getDiapers } from '../../redux/actions'
-import { Header, Statistic, Table } from 'semantic-ui-react'
-import HomepageDiaperChanges from '../Graphs/HomepageDiaperChanges'
+import { Statistic, Table } from 'semantic-ui-react'
 
 
 class Diapers extends Component {

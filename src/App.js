@@ -1,5 +1,5 @@
 import './App.css';
-import { Switch } from 'react-router-dom'
+import { Switch, withRouter } from 'react-router-dom'
 import React from 'react';
 import { Route } from "react-router-dom";
 import Homepage from './Components//Home/Homepage'
@@ -34,7 +34,7 @@ componentDidMount = () => {
 	.then(response => this.props.sessionUser(response))
 	} else {
 	console.log("There is no User logged in.")
-	this.history.push("/login")
+	this.props.history.push("/login")
 	}
 	this.props.getDiapers()
 	this.props.getFeedings()
@@ -81,4 +81,4 @@ function msp(state) {
     return state
 }
 
-export default connect(msp, mdp)(App)
+export default connect(msp, mdp)(withRouter(App))

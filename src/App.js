@@ -34,6 +34,7 @@ componentDidMount = () => {
 	.then(response => this.props.sessionUser(response))
 	} else {
 	console.log("There is no User logged in.")
+	this.history.push("/login")
 	}
 	this.props.getDiapers()
 	this.props.getFeedings()

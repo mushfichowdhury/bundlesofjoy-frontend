@@ -32,6 +32,7 @@ componentDidMount = () => {
 	fetch("https://bundles-of-joy.herokuapp.com/api/v1/users", configObj)
 	.then(response => response.json())
 	.then(response => this.props.sessionUser(response))
+
 	} else {
 	console.log("There is no User logged in.")
 	this.props.history.push("/login")
@@ -40,6 +41,7 @@ componentDidMount = () => {
 	this.props.getFeedings()
 	this.props.getNaps()
 	this.props.getEntries()
+	this.props.history.push("/home")
 }
 
 render() {

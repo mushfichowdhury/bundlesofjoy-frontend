@@ -11,15 +11,16 @@ import { Button, Form, Icon, Message } from 'semantic-ui-react'
 class Login extends Component {
 
     state = {
-        username: "",
-        password: ""
+        username: "mushmush",
+        password: "abc123"
     }
     
 
     changeHandler = (e) => {
-        this.setState({
-            [e.target.name] : e.target.value
-        })
+        // this.setState({
+        //     [e.target.name] : e.target.value
+        // })
+        console.log("use mushmush")
     }
 
     submitHandler = (e) => {
@@ -70,12 +71,12 @@ class Login extends Component {
                             <Icon name='arrow right' />
                         </Button.Content>
                     </Button>
-                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' >
+                    {/* <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' >
                         <Button.Content visible>New Parent</Button.Content>
                         <Button.Content hidden>
                             <Icon name='arrow right' />
                         </Button.Content>
-                    </Button>
+                    </Button> */}
                     {/* <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' onClick={this.childLogin}>
                         <Button.Content visible>Child Log In</Button.Content>
                         <Button.Content hidden>

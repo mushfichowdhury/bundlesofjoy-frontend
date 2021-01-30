@@ -1,9 +1,9 @@
 {
   "short_name": "Bundles of Joy",
-  "name": "App for parents to keep trackof daily diapers, naps, and feedings.",
+  "name": "App for parents to keep track of daily diapers, naps, and feedings.",
   "icons": [
     {
-      "src": "BOJlogo.png",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }

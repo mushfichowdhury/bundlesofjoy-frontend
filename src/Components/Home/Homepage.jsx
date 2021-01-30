@@ -68,7 +68,7 @@ class Homepage extends React.Component {
     return (
         <div>
             <div className="App" style={{marginTop: "1%"}}>
-                <h1>Welcome, {this.props.user.user.username}!</h1>
+                {/* <h1>Welcome, {this.props.user.user.username}!</h1> */}
             </div>
             <br/>
             <Statistic >

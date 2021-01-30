@@ -24,14 +24,16 @@ class Login extends Component {
 
     submitHandler = (e) => {
         e.preventDefault()
-        console.log("test test")
         this.props.userLogin(this.state)
+        if (localStorage.getItem("token") !== "undefined" || null) {
+            this.props.routerProps.history.push("/home")
+        }
     }
 
-    childLogin = () => {
-        console.log("clicking")
-        this.props.routerProps.history.push("/childlogin")
-    }
+    // childLogin = () => {
+    //     console.log("clicking")
+    //     this.props.routerProps.history.push("/childlogin")
+    // }
 
 
     render() {
@@ -74,12 +76,12 @@ class Login extends Component {
                             <Icon name='arrow right' />
                         </Button.Content>
                     </Button>
-                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' onClick={this.childLogin}>
+                    {/* <Button style={{background: "rgb(207, 207, 250)", color: "white"}} animated='fade' onClick={this.childLogin}>
                         <Button.Content visible>Child Log In</Button.Content>
                         <Button.Content hidden>
                             <Icon name='arrow right' />
                         </Button.Content>
-                    </Button>
+                    </Button> */}
                     </Button.Group>
                 </Form>
                 </div>
@@ -91,9 +93,7 @@ class Login extends Component {
 const msp = (state) => {
     return {user: state.user}
 }
-
 const mdp = (dispatch) => {
     return { userLogin: (user) => dispatch(userLoginAction(user, dispatch))}
 }
-
 export default connect(msp, mdp)(withRouter(Login))

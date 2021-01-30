@@ -91,7 +91,7 @@ body {
     height:250px;
     width:3px;
     margin:0 auto;
-    content: url(../../O.png);
+    content: url(../../Images/O.png);
     background:rgb(255, 255, 255); 
 }
 
@@ -101,7 +101,7 @@ body {
     height:250px;
     width:3px;
     margin:0 auto;
-    content:url(../../F.png);
+    content:url(../../Images/F.png);
     background:rgb(255, 255, 255); 
 }
 
@@ -111,7 +111,7 @@ body {
     height:250px;
     width:3px;
     margin:0 auto;
-    content:url(../../J.png);
+    content:url(../../Images/J.png);
     background:rgb(255, 255, 255); 
 }
 
@@ -121,7 +121,7 @@ body {
     height:250px;
     width:3px;
     margin:0 auto;
-    content:url(../../O.png);
+    content:url(../../Images/O.png);
     background:rgb(255, 255, 255); 
 }
 
@@ -131,7 +131,7 @@ body {
     height:250px;
     width:3px;
     margin:0 auto;
-    content:url(../../Y.png);
+    content:url(../../Images/Y.png);
     background:rgb(255, 255, 255); 
 }
 

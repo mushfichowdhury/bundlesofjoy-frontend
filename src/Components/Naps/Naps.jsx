@@ -5,6 +5,7 @@ import NapRow from "./NapRow"
 import NewNap from './NewNap'
 // import HomepageNaps from '../Graphs/HomepageNaps'
 import { Table, Statistic } from 'semantic-ui-react';
+import './Naps.css'
 
 
 class Naps extends React.Component {
@@ -29,7 +30,10 @@ class Naps extends React.Component {
                     <Statistic.Value>{this.props.naps.filter(nap => new Date(Date.parse(nap.created_at)).toDateString() === new Date(Date.parse(this.props.naps[this.props.naps.length-1].created_at)).toDateString()).length}</Statistic.Value>
                     <Statistic.Label>Naps Today</Statistic.Label>
                 </Statistic>
+
+                
                 <NewNap submitHandler={this.submitHandler} />
+
                 <Table striped className="diaperTable" style={{width: "75%", margin: "auto"}} >
                     <Table.Header style={{textAlign: "center"}}>
                         <Table.Row>

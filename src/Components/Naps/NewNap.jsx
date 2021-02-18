@@ -39,7 +39,7 @@ class NewNap extends Component {
     render() {
         return (
             <div>
-            <Timer timerHandler={this.timerHandler} style={{display: "box"}} />
+            <Timer timerHandler={this.timerHandler} />
             <Form inline onSubmit={this.localSubmitHandler} style={{display: "flex", margin: "auto", marginTop: "1%", justifyContent: "center", width: "40%"}}>
                 <Form.Group>
                 <Form.Field inline>

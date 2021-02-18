@@ -30,25 +30,25 @@ class Timer extends React.Component {
         this.setState({time: 0})
     }
     localTimerHandler = () => {
-        console.log(this.state.time)
+        console.log(this.state.time, this.props)
         this.props.timerHandler(ms(this.state.time))
         this.setState({time: 0})
     }
     render() {
         let start = (this.state.time === 0) ?
-        <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.startTimer}>start</Button> :
+        <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.startTimer}>Start</Button> :
         null
         let stop = (this.state.isOn) ?
-        <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.stopTimer}>stop</Button> :
+        <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.stopTimer}>Stop</Button> :
         null
         let reset = (this.state.time !== 0 && !this.state.isOn) ?
-        <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.resetTimer}>reset</Button> :
+        <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.resetTimer}>Reset</Button> :
         null
         let resume = (this.state.time !== 0 && !this.state.isOn) ?
-        <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.startTimer}>resume</Button> :
+        <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.startTimer}>Resume</Button> :
         null
         let submit = (this.state.time !== 0 && !this.state.isOn) ?
-        <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.localTimerHandler}>enter</Button> :
+        <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.localTimerHandler}>Enter</Button> :
         null
         return(
         <div>

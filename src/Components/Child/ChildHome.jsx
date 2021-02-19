@@ -59,7 +59,7 @@ class ChildHome extends React.Component {
                 <h1 style={{marginTop: "1%"}}>Bundles of Joy Memory Bank</h1>
             </div>
             <br/><br/>
-            <div className="App">
+            <div className="childEntries">
                 <Card.Group itemsPerRow={4} >
                     {this.renderEntries()}
                 </Card.Group>

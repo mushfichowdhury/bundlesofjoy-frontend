@@ -71,6 +71,7 @@
   cursor: pointer;
 }
 
-button {
-  background-color: rgb(150, 150, 250);
+.childEntries {
+  text-align: center;
+  margin: 0% 3% 0% 3%;
 }

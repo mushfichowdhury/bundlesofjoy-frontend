@@ -18,6 +18,7 @@ class Navbar extends React.Component {
         this.props.logOut()
         this.backtologin()
     }
+
     render() {
     return (
     <>
@@ -32,7 +33,9 @@ class Navbar extends React.Component {
         <Sticky>
             <Menu inverted pointed secondary style={{background: "rgb(150, 150, 250)" }}>
                 <div className='header item'>
-                <Image src={logo} size='mini' />
+                <NavLink className='item ' exact to='/childhome'>
+                    <Image src={logo} size='mini' />
+                </NavLink>
                 </div>
                 <NavLink className='item ' exact to='/home'>
                 Home

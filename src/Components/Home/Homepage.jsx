@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { getNaps, getDiapers, getFeedings, getEntries, getChildren } from '../../redux/actions'
 import NewJournalEntry from '../Entries/NewJournalEntry'
-import ChildInfo from '../Child/ChildInfo'
 import './Homepage.css'
 import LastDiaper from './LastDiaper';
 // import LastFeeding from './LastFeeding';
@@ -62,9 +61,9 @@ class Homepage extends React.Component {
     }
 
 
-    renderChildren = () => {
-        return this.state.children.filter((child) => { return child.user_id === this.props.user.user.id }).map((child)=> <ChildInfo key={child.id} child={child} />)
-    }
+    // renderChildren = () => {
+    //     return this.state.children.filter((child) => { return child.user_id === this.props.user.user.id }).map((child)=> <ChildInfo key={child.id} child={child} />)
+    // }
 
 
     render() {

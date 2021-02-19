@@ -14,7 +14,6 @@ class Child extends React.Component {
         return this.props.entries.map(entry => <img src={entry.image} alt=""/>)
     }
     render() {
-        console.log(this.props.user.user.children[0].name)
     return (
         <div>
             <h1>{this.props.user.user.children[0].name}</h1>

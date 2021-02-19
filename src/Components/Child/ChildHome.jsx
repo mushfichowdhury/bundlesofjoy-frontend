@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { getEntries, getChildren } from '../../redux/actions'
 import ChildJournalEntries from './ChildJournalEntries'
-// import ChildInfo from '../Child/ChildInfo'
 import { Card } from 'semantic-ui-react';
 
 

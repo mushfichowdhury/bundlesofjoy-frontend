@@ -30,7 +30,7 @@ function diapersReducer(state = defaultState.diapers, action) {
         case "GET_DIAPERS":
             return action.payload
         case "ADD_DIAPER":
-            return [...state, action.payload]
+            return [action.payload, ...state]
         case "EDIT_DIAPER":
             let newArray = state.filter(diaperChange => diaperChange.id !== action.payload.id)
             return [...newArray, action.payload]
@@ -47,7 +47,7 @@ function feedingsReducer(state = defaultState.feedings, action) {
         case "GET_FEEDINGS":
             return action.payload
         case "ADD_FEEDING":
-            return [...state, action.payload]
+            return [action.payload, ...state]
         case "EDIT_FEEDING":
             let newArray = state.filter(feeding => feeding.id !== action.payload.id)
             return [...newArray, action.payload]

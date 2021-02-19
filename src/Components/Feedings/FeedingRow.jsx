@@ -25,7 +25,7 @@ const FeedingRow = (props) => {
                 <span>{ props.feeding.amount } oz.</span>
             </Table.Cell>
             <Table.Cell>
-                <Button style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={deleteHandler}>Delete</Button>
+                <Button style={{background: "rgb(150, 150, 250)", color: "white"}} onClick={deleteHandler}>Delete</Button>
             </Table.Cell>
         </Table.Row>
     )

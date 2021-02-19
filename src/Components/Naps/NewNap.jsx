@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { Button, Form } from 'semantic-ui-react'
 import { newNap } from '../../redux/actions'
-import Timer from '../Timer'
+import Timer from './Timer'
 import './Naps.css'
 
 class NewNap extends Component {
@@ -41,16 +41,16 @@ class NewNap extends Component {
         return (
             <div className="napsTimer">
             <Timer timerHandler={this.timerHandler} />
+                <div style={{"width": "20px"}}/>
             <Form inline onSubmit={this.localSubmitHandler} >
                 <Form.Group>
                 <Form.Field inline>
                 <label for="duration">Duration:</label>
                 <input name="duration" type="text" value={this.state.duration} onChange={this.changeHandler} />
                 </Form.Field>
-                <Button style={{background: "rgb(207, 207, 250)", color: "white"}} type="submit" value="Submit">Submit</Button>
+                <Button style={{background: "rgb(150, 150, 250)", color: "white"}} type="submit" value="Submit">Submit</Button>
                 </Form.Group>
             </Form>
-            <br/>
             </div>
         )
     }

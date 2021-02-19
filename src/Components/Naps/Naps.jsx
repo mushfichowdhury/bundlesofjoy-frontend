@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { getNaps } from '../../redux/actions'
 import NapRow from "./NapRow"
 import NewNap from './NewNap'
-// import HomepageNaps from '../Graphs/HomepageNaps'
 import { Table, Statistic } from 'semantic-ui-react';
 
 

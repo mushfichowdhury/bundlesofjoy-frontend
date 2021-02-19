@@ -66,6 +66,11 @@
   height: 100%;
 }
 
+.floating-size:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
 button {
   background-color: rgb(150, 150, 250);
 }

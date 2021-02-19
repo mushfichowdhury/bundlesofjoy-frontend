@@ -55,7 +55,7 @@ class NewFeeding extends Component {
                 <label for="amount">Amount (oz.):</label>
                 <input name="amount" type="number" value={this.state.amount} onChange={this.changeHandler} />
                 </Form.Field>
-                <Button style={{background: "rgb(207, 207, 250)", color: "white"}} type="submit" value="Submit">Submit</Button>
+                <Button style={{background: "rgb(150, 150, 250)", color: "white"}} type="submit" value="Submit">Submit</Button>
                 </Form.Group>
                 {this.state.visible ? <Message
                     success

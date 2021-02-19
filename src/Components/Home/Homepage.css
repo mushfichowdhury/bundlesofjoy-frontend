@@ -1,9 +1,9 @@
 .grid-container {
     display: grid;
-  grid-template-columns: 0.5fr 1.5fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
     "Last-Logs Journal-Entries";
     padding-right: 8%;
     padding-left: 8%;

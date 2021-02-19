@@ -8,7 +8,7 @@ export default class AllEntries extends Component {
         return (
             <div>
                 <Form >
-                    <Form.Field control={Input} name="search" placeholder="Search" value={this.props.searchInput} onChange={this.props.handleSearch} />    
+                    <Form.Field control={Input} name="search" placeholder="Search" value={this.props.searchInput} onChange={this.props.handleSearch} style={{ "width": "40%", "justify-content": "center"}}/>    
                 </Form>
                 <Item.Group divided className="entryContainer">
                     {

@@ -65,7 +65,7 @@ class NewDiaper extends Component {
                 <input name="image" type="text" value={this.state.image} onChange={this.changeHandler} />
                 </Form.Field>
                 
-                <Button style={{background: "rgb(207, 207, 250)", color: "white", padding: "10px 10px 0px -10px"}} type="submit" value="Submit">Enter</Button>
+                <Button style={{background: "rgb(150, 150, 250)", color: "white", padding: "10px 10px 0px -10px"}} type="submit" value="Submit">Enter</Button>
                 </Form.Group>
                 {this.state.visible ? <Message
                     success

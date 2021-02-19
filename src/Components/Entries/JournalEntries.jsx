@@ -23,7 +23,7 @@ class JournalEntries extends React.Component {
                     </Item.Meta>
                     <Item.Description>{this.props.entry.content}</Item.Description>
                     <Item.Extra>
-                        <Button floated="right" style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.deleteHandler}> Delete </Button>
+                        <Button floated="right" style={{background: "rgb(150, 150, 250)", color: "white"}} onClick={this.deleteHandler}> Delete </Button>
                     </Item.Extra>
                 </Item.Content>
             </Item>

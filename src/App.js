@@ -15,7 +15,7 @@ import ChildLogIn from './Components/LogIn/ChildLogIn';
 import { sessionUserAction } from './redux/actions'
 import { connect } from 'react-redux'
 import { getDiapers, getFeedings, getNaps, getEntries } from './redux/actions'
-import Timer from './Components/Timer';
+import Timer from './Components/Naps/Timer';
 
 
 

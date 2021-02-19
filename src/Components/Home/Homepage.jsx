@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { getNaps, getDiapers, getFeedings, getEntries, getChildren } from '../../redux/actions'
-import JournalEntries from '../Entries/JournalEntries'
 import NewJournalEntry from '../Entries/NewJournalEntry'
 import ChildInfo from '../Child/ChildInfo'
 import './Homepage.css'
 import LastDiaper from './LastDiaper';
 // import LastFeeding from './LastFeeding';
 // import LastNap from './LastNap';
-import { Item, Statistic } from 'semantic-ui-react';
+import { Statistic } from 'semantic-ui-react';
+import AllEntries from '../Entries/AllEntries';
 
 
 class Homepage extends React.Component {
@@ -18,7 +18,8 @@ class Homepage extends React.Component {
         naps: [],
         feedings: [],
         diapers: [],
-        children: []
+        children: [],
+        searchInput: ""
     }
 
     componentDidMount() {
@@ -37,11 +38,6 @@ class Homepage extends React.Component {
         return this.state.entries
     }
 
-    renderEntries = () => {
-        const entries = this.props.entries 
-        return entries.reverse().map((entryObj) => <JournalEntries key={entryObj.id} entry={entryObj} removeEntry={this.removeEntry} />)
-    }
-
     addEntry = (newEntry) => {
         let updatedEntries = [...this.state.entries, newEntry]
         this.setState({
@@ -58,6 +54,14 @@ class Homepage extends React.Component {
         })
     }
 
+    handleSearch = (e) => {
+        console.log("Search Text", e.target.value)
+        this.setState({
+            searchInput: e.target.value
+        })
+    }
+
+
     renderChildren = () => {
         return this.state.children.filter((child) => { return child.user_id === this.props.user.user.id }).map((child)=> <ChildInfo key={child.id} child={child} />)
     }
@@ -65,6 +69,11 @@ class Homepage extends React.Component {
 
     render() {
         console.log("Logged In As:", this.props.user)
+
+        const filteredEntries = 
+            this.props.entries.filter(entry => {
+                return entry.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
+            })
     return (
         <div>
             <div className="App" style={{marginTop: "1%"}}>
@@ -94,14 +103,6 @@ class Homepage extends React.Component {
                     <div className="Log-Diaper-Change" >
                         <LastDiaper diapers={this.props.diapers} feedings={this.props.feedings} naps={this.props.naps} style={{marginLeft: "500px"}}/>
                     </div>
-                    {/* <div className="divider"></div>
-                    <div className="Log-Feeding" >
-                        <LastFeeding feedings={this.props.feedings}/>
-                    </div>
-                    <div className="divider"></div>
-                    <div className="Log-Nap" >
-                        <LastNap naps={this.props.naps}/>
-                    </div> */}
                     </div>
                 </div>
                 : null
@@ -110,9 +111,12 @@ class Homepage extends React.Component {
                 
                 <div className="Journal-Entries" >
                     <NewJournalEntry addEntry={this.addEntry} /> 
-                    <Item.Group divided>
-                        {this.renderEntries()}
-                    </Item.Group>
+                    <AllEntries
+                        renderEntries={this.renderEntries}
+                        filteredEntries={filteredEntries}
+                        searchInput={this.state.searchInput}
+                        handleSearch={this.handleSearch}
+                    />
                 </div>
             </div>
         </div>

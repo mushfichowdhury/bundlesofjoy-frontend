@@ -65,3 +65,7 @@
   width: 40px;
   height: 100%;
 }
+
+button {
+  background-color: rgb(150, 150, 250);
+}

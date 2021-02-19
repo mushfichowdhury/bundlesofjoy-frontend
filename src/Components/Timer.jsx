@@ -52,7 +52,7 @@ class Timer extends React.Component {
         null
         return(
         <div>
-            <Header as="h1" style={{marginTop: "1%"}} >Timer: {ms(this.state.time)} {start}</Header>
+            <Header as="h4" >Timer: {ms(this.state.time)} {start}</Header>
             {/* {start} */}
             {resume}
             {stop}

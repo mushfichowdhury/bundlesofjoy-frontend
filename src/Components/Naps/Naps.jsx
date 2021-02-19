@@ -5,7 +5,6 @@ import NapRow from "./NapRow"
 import NewNap from './NewNap'
 // import HomepageNaps from '../Graphs/HomepageNaps'
 import { Table, Statistic } from 'semantic-ui-react';
-import './Naps.css'
 
 
 class Naps extends React.Component {

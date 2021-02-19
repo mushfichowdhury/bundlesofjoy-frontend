@@ -13,8 +13,9 @@ class JournalEntries extends React.Component {
 
     render() {
         return (
-        <Item style={{textAlign: "left"}}>
-            <Item.Image src={this.props.entry.image} />
+            <>
+            <Item style={{textAlign: "left"}}>
+                <Item.Image src={this.props.entry.image} />
                 <Item.Content>
                     <Item.Header>{this.props.entry.title}</Item.Header>
                     <Item.Meta>
@@ -25,7 +26,8 @@ class JournalEntries extends React.Component {
                         <Button floated="right" style={{background: "rgb(207, 207, 250)", color: "white"}} onClick={this.deleteHandler}> Delete </Button>
                     </Item.Extra>
                 </Item.Content>
-        </Item>
+            </Item>
+        </>
         );
     }
 }

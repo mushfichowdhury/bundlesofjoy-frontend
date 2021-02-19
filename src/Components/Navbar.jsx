@@ -30,7 +30,7 @@ class Navbar extends React.Component {
         </nav> */}
 
         <Sticky>
-            <Menu inverted pointed secondary style={{background: "rgb(207, 207, 250)", color: "black" }}>
+            <Menu inverted pointed secondary style={{background: "rgb(150, 150, 250)" }}>
                 <div className='header item'>
                 <Image src={logo} size='mini' />
                 </div>

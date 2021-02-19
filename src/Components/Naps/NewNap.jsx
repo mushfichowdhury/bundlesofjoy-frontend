@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { Button, Form } from 'semantic-ui-react'
 import { newNap } from '../../redux/actions'
 import Timer from '../Timer'
+import './Naps.css'
 
 class NewNap extends Component {
     state = {
@@ -38,9 +39,9 @@ class NewNap extends Component {
 
     render() {
         return (
-            <div>
+            <div className="napsTimer">
             <Timer timerHandler={this.timerHandler} />
-            <Form inline onSubmit={this.localSubmitHandler} style={{display: "flex", margin: "auto", marginTop: "1%", justifyContent: "center", width: "40%"}}>
+            <Form inline onSubmit={this.localSubmitHandler} >
                 <Form.Group>
                 <Form.Field inline>
                 <label for="duration">Duration:</label>

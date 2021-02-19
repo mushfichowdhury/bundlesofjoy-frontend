@@ -42,7 +42,7 @@ class NewJournalEntry extends React.Component {
                         <Form.Field control={Input} name="image" placeholder="Photo" value={this.state.image} onChange={this.handleChange}/>
                     </Form.Group>
                     <Form.Field style={{ height: '10em'}} control={TextArea} name="content" placeholder="Write Journal Entry" id="content" value={this.state.content} onChange={this.handleChange}/>
-                    <Button style={{background: "rgb(207, 207, 250)", color: "white"}} type="submit">Post</Button>
+                    <Button type="submit">Post</Button>
                 </Form>
             </div>
         );

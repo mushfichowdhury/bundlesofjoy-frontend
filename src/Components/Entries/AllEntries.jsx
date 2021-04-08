@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Item, Input } from 'semantic-ui-react';
 import JournalEntries from './JournalEntries'
+import './AllEntries.css'
 
 
 export default class AllEntries extends Component {
@@ -8,7 +9,7 @@ export default class AllEntries extends Component {
         return (
             <div>
                 <Form >
-                    <Form.Field control={Input} name="search" placeholder="Search" value={this.props.searchInput} onChange={this.props.handleSearch} style={{ "width": "40%", "justify-content": "center"}}/>    
+                    <Form.Field className="entrySearchBar" control={Input} name="search" placeholder="Search" value={this.props.searchInput} onChange={this.props.handleSearch} />    
                 </Form>
                 <Item.Group divided className="entryContainer">
                     {

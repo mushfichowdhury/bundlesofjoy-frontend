@@ -22,14 +22,6 @@ class Navbar extends React.Component {
     render() {
     return (
     <>
-        {/* {this.props.user || this.props.child ? <button onClick={this.logOut} >Logout</button> : null}
-        <nav className="navbar">
-            <Link to="/home"><Button style={{background: "transparent"}} className="nav-button">H O M E</Button></Link>
-            <Link to="/diapers"><Button style={{background: "transparent"}} className="nav-button">D I A P E R S</Button></Link>
-            <Link to="/feedings"><Button style={{background: "transparent"}} className="nav-button">F E E D I N G S</Button></Link>
-            <Link to="/naps"><Button style={{background: "transparent"}} className="nav-button">N A P S</Button></Link>
-        </nav> */}
-
         <Sticky>
             <Menu inverted pointed secondary style={{background: "rgb(150, 150, 250)" }}>
                 <div className='header item'>

@@ -9,27 +9,6 @@
     border: black;
 }
 
-/* .new-journal-entry > form > input {
-    outline-width: 0;
-    border: none;
-    padding: 5px 20px;
-    margin: auto;
-    border-radius: 999px;
-    background-color: #eff2f5;
-    height: 35px;
-} */
-
-/* #content {
-    width: 80%;
-    height: 35px
-} */
-/* 
-.new-journal-entry > form {
-    flex: 1;
-    display: flex;
-    margin-bottom: 10px;
-} */
-
 .new-journal-entry > form > button {
     height: 35px;
 }

@@ -3,11 +3,9 @@ import { connect } from 'react-redux'
 import { getNaps, getDiapers, getFeedings, getEntries, getChildren } from '../../redux/actions'
 import NewJournalEntry from '../Entries/NewJournalEntry'
 import './Homepage.css'
-import LastDiaper from './LastDiaper';
-// import LastFeeding from './LastFeeding';
-// import LastNap from './LastNap';
-import { Statistic } from 'semantic-ui-react';
+import RecentEvents from './RecentEvents';
 import AllEntries from '../Entries/AllEntries';
+// import DailyStats from './DailyStats';
 
 
 class Homepage extends React.Component {
@@ -74,43 +72,23 @@ class Homepage extends React.Component {
                 return entry.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
             })
     return (
-        <div>
-            <div className="App" style={{marginTop: "1%"}}>
-                {/* <h1>Welcome, {this.props.user.user.username}!</h1> */}
-            </div>
-            <br/>
-            <Statistic >
-                    <Statistic.Value className="floating">{this.props.feedings.filter(feeding => new Date(Date.parse(feeding.created_at)).toDateString() === new Date(Date.parse(this.props.feedings[this.props.feedings.length-1].created_at)).toDateString()).length}</Statistic.Value>
-                    <Statistic.Label>Feedings Today</Statistic.Label>
-            </Statistic>
-            <Statistic>
-                    <Statistic.Value className="floating">{this.props.diapers.filter(diaper => new Date(Date.parse(diaper.created_at)).toDateString() === new Date(Date.parse(this.props.diapers[this.props.diapers.length-1].created_at)).toDateString()).length}</Statistic.Value>
-                    <Statistic.Label>Diaper Changes Today</Statistic.Label>
-            </Statistic>
-            <Statistic style={{marginTop: "1%"}}>
-                    <Statistic.Value className="floating">{this.props.naps.filter(nap => new Date(Date.parse(nap.created_at)).toDateString() === new Date(Date.parse(this.props.naps[this.props.naps.length-1].created_at)).toDateString()).length}</Statistic.Value>
-                    <Statistic.Label>Naps Today</Statistic.Label>
-            </Statistic>
+        <div className="homepage">
+            {/* <DailyStats
+                feedings={this.state.feedings}
+                diapers={this.state.diapers}
+                naps={this.state.naps}
+            /> */}
             <div className="grid-container">
-                {/* {this.props.diapers.length && this.props.feedings.length > 0 ?
-                this.renderChildren() : <p>loading...</p>
-                } */}
-
                 {this.props.diapers.length && this.props.feedings.length > 0 ?
-                <div>
-                    <div className="Last-Logs">
-                    <div className="Log-Diaper-Change" >
-                        <LastDiaper diapers={this.props.diapers} feedings={this.props.feedings} naps={this.props.naps} style={{marginLeft: "500px"}}/>
-                    </div>
-                    </div>
+                    <div className="Side-Bar" >
+                    <NewJournalEntry addEntry={this.addEntry} />
+                    <RecentEvents diapers={this.props.diapers} feedings={this.props.feedings} naps={this.props.naps} style={{marginLeft: "500px"}}/>
                 </div>
                 : null
                 }
-                
-                
                 <div className="Journal-Entries" >
-                    <NewJournalEntry addEntry={this.addEntry} /> 
                     <AllEntries
+                        className="entryContainer"
                         renderEntries={this.renderEntries}
                         filteredEntries={filteredEntries}
                         searchInput={this.state.searchInput}

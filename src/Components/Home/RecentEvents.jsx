@@ -9,7 +9,7 @@ import redpoop from '../images/redpoop.png'
 import whitepoop from '../images/whitepoop.png'
 import yellowpoop from '../images/yellowpoop.png'
 
-class LastDiaper extends React.Component {
+class RecentEvents extends React.Component {
 
     capitalizeFirstLetter(string) {
     return string[0].toUpperCase() + string.slice(1);
@@ -35,14 +35,6 @@ class LastDiaper extends React.Component {
         let napdifference = new Date(napdateNow - napdateCreated).getMinutes()
         let napname = this.props.naps[this.props.naps.length-1].child.name
     return (
-        // <div>
-        //     <h1>Last Diaper Change</h1>
-        //     <h3>{difference} minutes ago</h3>
-        //     <strong>Child: {name}</strong>            
-        //     <p>Texture: <strong>{texture}</strong></p>      
-        //     <p>Color: <strong>{color}</strong></p>
-            
-        // </div>
         <Card>
             <Card.Content>
                 <Card.Header>Recent Activity</Card.Header>
@@ -107,4 +99,4 @@ class LastDiaper extends React.Component {
     )}
 }
 
-export default LastDiaper
+export default RecentEvents

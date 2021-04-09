@@ -22,7 +22,6 @@ class NewJournalEntry extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.reduxHandleSubmit(this.state)
-        // this.resetForm(e)
         this.setState=({
             user_id: 1,
             title: "",
@@ -38,7 +37,6 @@ class NewJournalEntry extends React.Component {
                 <Form onSubmit={this.handleSubmit} >
                     <Form.Group widths='equal'>
                         <Form.Field control={Input} name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange}/>
-                        
                         <Form.Field control={Input} name="image" placeholder="Photo" value={this.state.image} onChange={this.handleChange}/>
                     </Form.Group>
                     <Form.Field style={{ height: '10em'}} control={TextArea} name="content" placeholder="Write Journal Entry" id="content" value={this.state.content} onChange={this.handleChange}/>

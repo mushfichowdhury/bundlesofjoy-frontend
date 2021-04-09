@@ -1,4 +1,4 @@
-.grid-container-entry {
+/* .grid-container-entry {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: max-content;
@@ -44,4 +44,4 @@
 .item:hover {
     opacity: 0.3;
     filter: alpha(opacity=30);
-}
+} */

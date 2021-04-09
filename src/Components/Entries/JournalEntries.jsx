@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from 'react-redux'
-import { Button, Item } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import { deleteEntry } from '../../redux/actions'
-import './JournalEntries.css'
+import './AllEntries.css'
 
 class JournalEntries extends React.Component {
 
@@ -14,7 +14,15 @@ class JournalEntries extends React.Component {
     render() {
         return (
             <>
-            <Item style={{textAlign: "left"}}>
+                <div className="timeline-content">
+                    <h3 className="date">{new Date(Date.parse(this.props.entry.created_at)).toDateString()}</h3>
+                    <h1>{this.props.entry.title}</h1>
+                    <p>{this.props.entry.content}</p>
+                    <img src={this.props.entry.image} alt="entryimage" />
+                    <Button floated="right" style={{background: "rgb(150, 150, 250)", color: "white"}} onClick={this.deleteHandler}> Delete </Button>
+                </div>
+                
+            {/* <Item style={{textAlign: "left"}}>
                 <Item.Image src={this.props.entry.image} />
                 <Item.Content>
                     <Item.Header>{this.props.entry.title}</Item.Header>
@@ -26,7 +34,7 @@ class JournalEntries extends React.Component {
                         <Button floated="right" style={{background: "rgb(150, 150, 250)", color: "white"}} onClick={this.deleteHandler}> Delete </Button>
                     </Item.Extra>
                 </Item.Content>
-            </Item>
+            </Item> */}
         </>
         );
     }

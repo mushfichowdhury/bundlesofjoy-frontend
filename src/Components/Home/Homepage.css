@@ -1,16 +1,19 @@
 .homepage {
     margin-top: 35px;
+    overflow-y: hidden;
+}
+
+.homepage::-webkit-scrollbar {
+  display: none;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: 0.5fr 1.5fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 0px 5%;
     grid-template-areas:
-    "Side-Bar Journal-Entries"
-    ". Journal-Entries"
-    ". Journal-Entries";
+    "Side-Bar Journal-Entries";
     padding-right: 5%;
     padding-left: 5%;
 }
